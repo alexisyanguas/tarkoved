@@ -1,0 +1,11 @@
+:root {
+    --colors-tarkovYellow-10: #55877F70;
+    --colors-tarkovYellow-50: #877F70;
+    --colors-tarkovYellow-100: #DBC59C;
+}
+
+h1{
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--colors-tarkovYellow-100);
+}
