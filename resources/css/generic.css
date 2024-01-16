@@ -1,12 +1,22 @@
 :root {
     --colors-kmrBlack-50: #414141;
     --colors-kmrBlack-100: #333;
-    --colors-tarkovYellow-10: #55877F70;
-    --colors-tarkovYellow-50: #DBC59C;
-    --colors-tarkovYellow-100: #877F70;
+    --colors-tarkovYellow-50: #dbc59c;
+    --colors-tarkovYellow-100: #877f70;
+    --font-family-roboto: "Roboto", sans-serif;
+    --font-family-bender-light: "Jovanny Lemonad - Bender-Light.otf", sans-serif;
+    --font-family-bender-medium: "Jovanny Lemonad - Bender.otf", sans-serif;
+    --font-family-bender-italic: "Jovanny Lemonad - Bender-Italic.otf",
+        sans-serif;
+    --font-family-bender-bold: "Jovanny Lemonad - Bender-Bold.otf", sans-serif;
+    --font-family-bender-bold-italic: "Jovanny Lemonad - Bender-BoldItalic.otf",
+        sans-serif;
+    --font-family-bender-black: "Jovanny Lemonad - Bender-Black.otf", sans-serif;
+    --font-family-bender-black-italic: "Jovanny Lemonad - Bender-BlackItalic.otf",
+        sans-serif;
 }
 
-h1{
+h1 {
     font-size: 2.5rem;
     font-weight: 700;
     color: var(--colors-tarkovYellow-100);
