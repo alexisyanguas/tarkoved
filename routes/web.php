@@ -1,7 +1,10 @@
 <?php
 
+use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia; 
+use App\Http\Controllers\Test\{
+    MapController
+};
 
 
 /*
@@ -15,7 +18,20 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome');
+Route::get('/', [TestController::class, "maps"])->name('maps');
+Route::get('/home', function () {
+    return Inertia::render('Welcome', [
+        "layoutDatas" => [
+            "title" => "Home",
+            "page" => "home",
+        ]
+    ]);
+})->name('home');
 
+
+Route::prefix("test")->group(function () {
+    Route::prefix("maps")->group(function () {
+        Route::get("/", [MapController::class, "index"])->name("test.maps");
+        Route::get("/{map}", [MapController::class, "maps"]);
+    });
 });

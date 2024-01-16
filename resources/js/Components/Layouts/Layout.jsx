@@ -5,13 +5,13 @@ const Header = () => {
     return <header className="layout-header_container"></header>;
 };
 
-const Layout = ({ children }) => {
+const Layout = ({ children, page }) => {
     return (
         <div className="layout-container">
-            <Navbar />
+            <Navbar page={page} />
             <div className="layout-content_container">
                 <Header />
-                <div className="container">{children}</div>
+                <div className="layout-content">{children}</div>
             </div>
         </div>
     );

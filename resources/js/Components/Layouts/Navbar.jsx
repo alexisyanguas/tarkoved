@@ -1,6 +1,10 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faFish } from "@fortawesome/free-solid-svg-icons";
+import {
+    faHome,
+    faFish,
+    faMapMarkedAlt,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Logo = ({ handleIsOpen }) => {
     return (
@@ -24,7 +28,9 @@ const NavItem = ({ url, name, icon, active = false, navIsOpen = false }) => {
     );
 };
 
-const Navbar = ({}) => {
+const Navbar = ({
+    page,
+}) => {
     const [isOpen, setIsOpen] = React.useState(false);
 
     return (
@@ -32,10 +38,17 @@ const Navbar = ({}) => {
             <Logo handleIsOpen={() => setIsOpen(!isOpen)} />
             <ul className="navbar-list">
                 <NavItem
-                    url="/"
+                    url="/home"
                     name="Home"
                     icon={faHome}
-                    active={true}
+                    active={page === "home"}
+                    navIsOpen={isOpen}
+                />
+                <NavItem
+                    url="/test/maps"
+                    name="Maps"
+                    icon={faMapMarkedAlt}
+                    active={page === "maps"}
                     navIsOpen={isOpen}
                 />
             </ul>
