@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Test;
 
+use App\Helpers\Api;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Http;
+
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -11,11 +14,17 @@ class MapController extends Controller
 
     public function index()
     {
+        $maps = Api::tarkovApi("POST", [], 'query { maps(lang: fr){
+            id, name, normalizedName, 
+        }}')['data']['maps'];
+
+
         return Inertia::render('Maps/Index', [
             "layoutDatas" => [
                 "title" => "Maps",
                 "page" => "maps",
-            ]
+            ],
+            "maps" => $maps,
         ]);
     }
 
@@ -39,6 +48,13 @@ class MapController extends Controller
             "reserve" => "https://mapgenie.io/tarkov/maps/reserve?embed=light",
             "streets-of-tarkov" => "https://mapgenie.io/tarkov/maps/streets-of-tarkov?embed=light",
         ];
+
+        $query = 'query { maps(name: "Customs"){
+            id, name, enemies
+        }';
+
+        $this->apiGetMap("POST", [], $query);
+
 
 
         return Inertia::render('Maps/Show', [

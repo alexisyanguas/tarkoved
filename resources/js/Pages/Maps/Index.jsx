@@ -1,33 +1,8 @@
 import React from "react";
 import Layout from "../../Components/Layouts/Layout";
 
-const Index = ({ layoutDatas, link }) => {
-    const maps = {
-        customs: {
-            name: {
-                en: "Customs",
-                fr: "Douanes",
-            },
-            code: "customs",
-            image: "/img/maps-bg/customs.jpg",
-        },
-        interchange: {
-            name: {
-                en: "Interchange",
-                fr: "Echangeur",
-            },
-            code: "interchange",
-            image: "/img/maps-bg/interchange.jpg",
-        },
-        reserve: {
-            name: {
-                en: "Reserve",
-                fr: "Réserve",
-            },
-            code: "reserve",
-            image: "/img/maps-bg/customs.jpg",
-        },
-    };
+const Index = ({ layoutDatas, maps }) => {
+    console.log(`maps`, maps);
 
     return (
         <Layout title={layoutDatas.title} page={layoutDatas.page}>
@@ -41,11 +16,13 @@ const Index = ({ layoutDatas, link }) => {
                                 href={`/test/maps/${map.code}`}
                             >
                                 <div className="map-container_list_item_infos">
-                                    <span>{map.name.en}</span>
-                                    <span>{map.name.fr}</span>
+                                    <span>{map.name}</span>
                                 </div>
-                                <img src={map.image} alt={map.name.en} />
-                                <span>{map.name.fr}</span>
+                                <img
+                                    src={`/img/maps-bg/${map.normalizedName}.jpg`}
+                                    alt={map.normalizedName}
+                                />
+                                <span>{map.name}</span>
                             </a>
                         );
                     })}
