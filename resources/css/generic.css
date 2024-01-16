@@ -1,12 +1,15 @@
 :root {
     --colors-kmrBlack-50: #414141;
     --colors-kmrBlack-100: #333;
-    --colors-tarkovYellow-10: #55877F70;
-    --colors-tarkovYellow-50: #DBC59C;
-    --colors-tarkovYellow-100: #877F70;
+    --colors-kmrGray-75: #c1c1c1;
+    --colors-kmrWhite-100: #fff;
+
+    --colors-tarkovYellow-43: #55877f70;
+    --colors-tarkovYellow-75: #dbc59c;
+    --colors-tarkovYellow-100: #877f70;
 }
 
-h1{
+h1 {
     font-size: 2.5rem;
     font-weight: 700;
     color: var(--colors-tarkovYellow-100);
