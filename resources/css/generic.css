@@ -2,10 +2,21 @@
     --colors-kmrBlack-50: #414141;
     --colors-kmrBlack-100: #333;
     --colors-kmrGray-75: #c1c1c1;
-    --colors-kmrWhite-100: #fff;
+    --colors-kmrWhite-100: #f4f4f4;
 
     --colors-tarkovYellow-50: #dbc59c;
     --colors-tarkovYellow-100: #877f70;
+
+    --radius-8: 0.5rem;
+    --gap-10: 0.625rem;
+    --gap-20: 1.25rem;
+
+
+    --font-size-16: 1rem;
+    --font-size-20: 1.25rem;
+    --font-size-24: 1.5rem;
+
+
 
     --font-family-roboto: "Roboto", sans-serif;
     --font-family-bender-light: "Jovanny Lemonad - Bender-Light.otf", sans-serif;
@@ -19,6 +30,17 @@
     --font-family-bender-black-italic: "Jovanny Lemonad - Bender-BlackItalic.otf",
         sans-serif;
 }
+
+/* 
+    1rem = 16px
+    0.5rem = 8px
+    1.25rem = 20px
+    1.5rem = 24px
+    40px = 2.5rem
+    10px = 0.625rem
+    20px = 1.25rem
+
+*/
 
 h1 {
     font-size: 2.5rem;

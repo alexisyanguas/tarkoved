@@ -1,0 +1,48 @@
+.map-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    .map-container_list{
+        width: 100%;
+        height: 100%;
+        padding: 1rem;
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        .map-container_list_item{
+            position: relative;
+            flex: 1 1 20rem;
+            height: 20rem;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            background-color: var(--colors-kmrBlack-50);
+            color: var(--colors-kmrWhite-100);
+            img{
+                width: 100%;
+                height: calc(100% - 4rem);
+                object-fit: cover;
+            }
+            span{
+                display: block;
+                height: 3rem;
+                padding: 1rem;
+                font-size: 1.5rem;
+                font-weight: 700;
+            }
+            .map-container_list_item_infos{
+                opacity: 0;
+                position: absolute;
+                background: var(--colors-kmrBlack-100);
+                width: 100%;
+                height: 100%;
+                transition: opacity 0.3s ease-in-out;
+            }
+
+            &:hover{
+                .map-container_list_item_infos{
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

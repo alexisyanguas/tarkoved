@@ -1,33 +1,32 @@
 .navbar-container {
     background-color: var(--colors-kmrBlack-50);
     width: 80px;
-    padding: 20px 10px;
+    padding: var(--gap-20) var(--gap-10);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     transition: all 0.3s;
-    row-gap: 20px;
+    row-gap: var(--gap-20);
     &.open {
         width: 180px;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: start;
-
     }
 
     .nav__name {
         width: 100%;
         display: flex;
         justify-content: center;
-        font-size: 1.5rem;
+        font-size: var(--font-size-24);
         color: var(--colors-kmrWhite-100);
     }
     .navbar-list {
         width: 100%;
         display: flex;
         flex-direction: column;
-        row-gap: 10px;
+        row-gap: var(--gap-10);
         .navbar-list_item {
             width: 100%;
             display: flex;
@@ -35,20 +34,20 @@
             justify-content: flex-start;
 
             a {
-                border-radius: 5px;
-                height: 40px;
+                border-radius: var(--radius-8);
+                height: 2.5rem;
                 text-decoration: none;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                padding: 0 10px;
-                column-gap: 10px;
+                padding: 0 var(--gap-10);
+                column-gap: var(--gap-10);
                 color: var(--colors-kmrWhite-100);
-                font-size: 1.2rem;
+                font-size: var(--font-size-20);
                 &:hover,
                 &.active {
-                    background-color: #f4f4f4;
-                    color: #333;
+                    background-color: var(--colors-kmrWhite-100);
+                    color: var(--colors-kmrBlack-100);
                 }
             }
         }
