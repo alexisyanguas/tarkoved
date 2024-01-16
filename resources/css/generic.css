@@ -1,7 +1,9 @@
 :root {
+    --colors-kmrBlack-50: #414141;
+    --colors-kmrBlack-100: #333;
     --colors-tarkovYellow-10: #55877F70;
-    --colors-tarkovYellow-50: #877F70;
-    --colors-tarkovYellow-100: #DBC59C;
+    --colors-tarkovYellow-50: #DBC59C;
+    --colors-tarkovYellow-100: #877F70;
 }
 
 h1{
