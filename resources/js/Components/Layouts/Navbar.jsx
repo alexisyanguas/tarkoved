@@ -9,8 +9,8 @@ import {
 
 const Logo = ({ handleIsOpen }) => {
     return (
-        <div className="nav__name" onClick={handleIsOpen}>
-            <FontAwesomeIcon icon={faFish} />
+        <div className="nav__name" onClick={handleIsOpen} style={{cursor: "pointer"}}>
+            <img src="/img/logo/image.png" alt="logo" />
         </div>
     );
 };
