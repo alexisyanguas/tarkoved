@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers\Test;
 
+use Inertia\Inertia;
 use App\Helpers\Api;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Http;
-
-use Illuminate\Http\Request;
-use Inertia\Inertia;
 
 class MapController extends Controller
 {
@@ -33,7 +30,7 @@ class MapController extends Controller
         $maps = $this->removeMapsInMapsJson($maps, ["night-factory"]);
 
         return Inertia::render('Maps/Index', [
-            "layoutDatas" => $this->layoutDatas,
+            "layoutDatas" => [...$this->layoutDatas, "user" => auth()->user()],
             "maps" => $maps,
         ]);
     }
@@ -55,7 +52,7 @@ class MapController extends Controller
         ];
 
         return Inertia::render('Maps/Show', [
-            "layoutDatas" => $this->layoutDatas,
+            "layoutDatas" => [...$this->layoutDatas, "user" => auth()->user()],
             "link" => $links[$map] ?? null,
         ]);
     }

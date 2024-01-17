@@ -22,34 +22,60 @@
         font-size: var(--font-size-24);
         color: var(--colors-kmrWhite-100);
     }
+    .navbar-list_container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: start;
+    }
     .navbar-list {
         width: 100%;
         display: flex;
         flex-direction: column;
         row-gap: var(--gap-10);
-        .navbar-list_item {
+    }
+    .navbar-list_footer {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        row-gap: var(--gap-10);
+        .navbar-list_footer-copyright {
             width: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
+            justify-content: center;
+            align-items: center;
+            font-size: var(--font-size-16);
+            color: var(--colors-kmrWhite-100);
+        }
+    }
+}
 
-            a {
-                border-radius: var(--radius-8);
-                height: 2.5rem;
-                text-decoration: none;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding: 0 var(--gap-10);
-                column-gap: var(--gap-10);
-                color: var(--colors-kmrWhite-100);
-                font-size: var(--font-size-20);
-                &:hover,
-                &.active {
-                    background-color: var(--colors-kmrWhite-100);
-                    color: var(--colors-kmrBlack-100);
-                }
-            }
+.navbar-list_item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    a {
+        border-radius: var(--radius-8);
+        height: 2.5rem;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 var(--gap-10);
+        column-gap: var(--gap-10);
+        color: var(--colors-kmrWhite-100);
+        font-size: var(--font-size-20);
+        &:hover,
+        &.active {
+            background-color: var(--colors-kmrWhite-100);
+            color: var(--colors-kmrBlack-100);
         }
     }
 }

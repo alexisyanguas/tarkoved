@@ -9,14 +9,6 @@ class TestController extends Controller
 {
     public function maps()
     {
-        $layoutDatas = [
-            "title" => "Maps",
-            "page" => "maps",
-        ];
-        return Inertia::render('Maps/Index',[
-            "layoutDatas" => $layoutDatas,
-
-            // 
-        ]);
+        return redirect()->route("test.maps");
     }
 }

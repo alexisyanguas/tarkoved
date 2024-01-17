@@ -41,7 +41,11 @@ export default function Index({ layoutDatas, ammos }) {
     ];
 
     return (
-        <Layout page={layoutDatas.page} title={layoutDatas.title}>
+        <Layout
+            title={layoutDatas.title}
+            page={layoutDatas.page}
+            user={layoutDatas.user}
+        >
             <div className="ammo-parent_container">
                 <div className="ammo-container">
                     <div className="ammo-filter_container">

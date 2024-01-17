@@ -7,12 +7,12 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Helpers\Api;
 
-
 class AmmoController extends Controller
 {
+
     private $layoutDatas = [
         "title" => "Ammo",
-        "page" => "ammo",
+        "page"  => "ammo",
     ];
 
     private $ammoQuery = "query{ ammo (){
@@ -33,8 +33,8 @@ class AmmoController extends Controller
         // dd($ammos);
 
         return Inertia::render('Ammo/Index', [
-            "layoutDatas" => $this->layoutDatas,
-            "ammos" => $ammos,
+            "layoutDatas" => [...$this->layoutDatas, "user" => auth()->user()],
+            "ammos"       => $ammos,
         ]);
     }
 }

@@ -31,4 +31,15 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    // 'discord' => [
+    //     'client_id' => env('DISCORD_CLIENT_ID'),
+    //     'client_secret' => env('DISCORD_CLIENT_SECRET'),
+    //     'redirect' => 'https://discord.com/api/oauth2/authorize?client_id=1197214627549958234&response_type=code&redirect_uri=http%3A%2F%2Ftarkoved.test&scope=identify+email',
+    // ],
+
+    'discord' => [
+        'client_id' => env('DISCORD_CLIENT_ID'),
+        'client_secret' => env('DISCORD_CLIENT_SECRET'),
+        'redirect' => '/auth/discord/callback',
+    ],
 ];

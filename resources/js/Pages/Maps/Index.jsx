@@ -4,10 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPeopleGroup, faClock } from "@fortawesome/free-solid-svg-icons";
 
 const Index = ({ layoutDatas, maps }) => {
-    console.log(`maps`, maps);
-
     return (
-        <Layout title={layoutDatas.title} page={layoutDatas.page}>
+        <Layout
+            title={layoutDatas.title}
+            page={layoutDatas.page}
+            user={layoutDatas.user}
+        >
             <div className="map-container">
                 <div className="map-container_list">
                     {Object.keys(maps).map((key) => {

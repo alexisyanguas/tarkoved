@@ -3,7 +3,11 @@ import Layout from "../../Components/Layouts/Layout";
 
 const Show = ({ layoutDatas, link }) => {
     return (
-        <Layout title={layoutDatas.title} page={layoutDatas.page}>
+        <Layout
+            title={layoutDatas.title}
+            page={layoutDatas.page}
+            user={layoutDatas.user}
+        >
             <iframe
                 onLoad={() => {
                     document
