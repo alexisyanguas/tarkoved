@@ -1,53 +1,60 @@
 import Layout from "../../Components/Layouts/Layout";
 import { SVG } from "../../Components/Ammos/Svg";
+import { caliberArrayWithSplit } from "../../Modules/format-calibers";
+import {
+    Caliber9x18PM,
+    Caliber762x25TT,
+    Caliber9x19PARA,
+    Caliber9x21,
+    Caliber1143x23ACP,
+    Caliber9x33R,
+    Caliber57x28,
+    Caliber46x30,
+    Caliber545x39,
+    Caliber556x45NATO,
+    Caliber762x35,
+    Caliber762x39,
+    Caliber366TKM,
+    Caliber9x39,
+    Caliber68x51,
+    Caliber762x51,
+    Caliber762x54R,
+    Caliber127x55,
+    Caliber86x70,
+    Caliber12g,
+    Caliber20g,
+    Caliber23x75,
+    Caliber40x46,
+} from "../../Components/Ammos/Paths";
 
-import { _45_ACP, _9x19 } from "../../Components/Ammos/Paths";
-
-export default function Index({ layoutDatas }) {
-    const caliberMap = {
-        Caliber366TKM: ".366",
-        Caliber556x45NATO: "5.56x45 mm",
-        Caliber1143x23ACP: ".45 ACP",
-        Caliber127x55: "12.7x55 mm",
-        Caliber23x75: "23x75 mm",
-        Caliber46x30: "4.6x30 mm",
-        Caliber545x39: "5.45x39 mm",
-        Caliber57x28: "5.7x28 mm",
-        Caliber762x25TT: "7.62x25 mm TT",
-        Caliber762x35: ".300 Blackout",
-        Caliber762x39: "7.62x39 mm",
-        Caliber762x51: "7.62x51 mm",
-        Caliber762x54R: "7.62x54R",
-        Caliber86x70: ".338 Lapua Magnum",
-        Caliber9x18PM: "9x18 mm",
-        Caliber9x19PARA: "9x19 mm",
-        Caliber9x21: "9x21 mm",
-        Caliber9x39: "9x39 mm",
-        Caliber20g: "20 Gauge",
-        Caliber12g: "12 Gauge",
-        Caliber9x33R: ".357 Magnum",
-    };
+export default function Index({ layoutDatas, ammos }) {
+    const caliberMap = caliberArrayWithSplit();
+    console.log(`caliberMap`, caliberMap);
 
     return (
         <Layout page={layoutDatas.page} title={layoutDatas.title}>
             <div className="ammo-parent_container">
                 <div className="ammo-container">
                     <div className="ammo-filter_container">
-                        <button class="ammo-basic-button_bullet">
-                            <SVG>
-                                <_45_ACP />
-                            </SVG>
-
-                            <p class="ammo-left-icon">.45 ACP</p>
-                        </button>
-                        <button class="ammo-basic-button_bullet">
-                            <p>
-                                <SVG>
-                                    <_9x19 />
-                                </SVG>
-                            </p>
-                            <p class="ammo-left-icon">.9x19</p>
-                        </button>
+                        {Object.keys(ammos).map((caliberGroup, key) => {
+                            console.log(
+                                `caliberGroup`,
+                                caliberGroup, caliberMap[caliberGroup]
+                            );
+                            return (
+                                <button
+                                    className="ammo-basic-button_bullet"
+                                    key={key}
+                                >
+                                    <p>
+                                        <SVG>
+                                            {caliberMap[caliberGroup]?.component}
+                                        </SVG>
+                                    </p>
+                                    <p>{caliberMap[caliberGroup]?.name}</p>
+                                </button>
+                            );
+                        })}
                     </div>
                     <div className="ammo-list_container"></div>
                 </div>

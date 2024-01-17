@@ -15,29 +15,23 @@ class AmmoController extends Controller
         "page" => "ammo",
     ];
 
-    private $ammoQuery = "query{{
-            ammo (){
-                item{
-                    id,
-                    name,
-                    normalizedName,
-                    shortName,
-                    description,
-                    basePrice,
-                },
-                caliber,
-                weight,
-                tracer,
-                tracerColor,
-                damage,
-                ammoType,
-                armorDamage
+    private $ammoQuery = "query{ ammo (){
+        item{
+            id, name, normalizedName, shortName,
+            description, basePrice,
+        },
+        caliber, weight, tracer, tracerColor, 
+        damage, ammoType, armorDamage
     }}";
 
     public function index()
     {
-        $ammos = Api::tarkovApi("POST", [], $this->ammoQuery)['data']['items'];
-        dd($ammos);
+        $ammos = Api::tarkovApi("POST", [], $this->ammoQuery)['data']['ammo'];
+
+        // Group by caliber
+        $ammos = collect($ammos)->groupBy('caliber')->toArray();
+        // dd($ammos);
+
         return Inertia::render('Ammo/Index', [
             "layoutDatas" => $this->layoutDatas,
             "ammos" => $ammos,

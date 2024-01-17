@@ -12,7 +12,6 @@ class Api
         $url = env('API_TARKOV_URL', "https://api.tarkov.dev/graphql");
         if ($url == null) return;
 
-
         $headers = ['Content-Type: application/json', ...$headers];
 
         $data = @file_get_contents($url, false, stream_context_create([
