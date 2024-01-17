@@ -1,3 +1,4 @@
+
 :root {
     --colors-kmrBlack-50: #414141;
     --colors-kmrBlack-100: #333;
@@ -8,17 +9,14 @@
     --colors-tarkovYellow-100: #877f70;
 
     --radius-8: 0.5rem;
-    
+
     --gap-10: 0.625rem;
     --gap-16: 1rem;
     --gap-20: 1.25rem;
 
-
     --font-size-16: 1rem;
     --font-size-20: 1.25rem;
     --font-size-24: 1.5rem;
-
-
 
     --font-family-roboto: "Roboto", sans-serif;
     --font-family-bender-light: "Jovanny Lemonad - Bender-Light.otf", sans-serif;
@@ -43,6 +41,10 @@
     20px = 1.25rem
 
 */
+
+* {
+    font-family: var(--font-family-bender-medium);
+}
 
 h1 {
     font-size: 2.5rem;

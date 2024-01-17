@@ -1,0 +1,58 @@
+/* Import Font-family from fonts/Bender */
+
+@font-face {
+    font-family: "Jovanny Lemonad - Bender.otf";
+    src: url("../fonts/Bender/Jovanny Lemonad - Bender.otf");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Jovanny Lemonad - Bender-Light.otf";
+    src: url("../fonts/Bender/Jovanny Lemonad - Bender-Light.otf");
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Jovanny Lemonad - Bender-Italic.otf";
+    src: url("../fonts/Bender/Jovanny Lemonad - Bender-Italic.otf");
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Jovanny Lemonad - Bender-Bold.otf";
+    src: url("../fonts/Bender/Jovanny Lemonad - Bender-Bold.otf");
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Jovanny Lemonad - Bender-BoldItalic.otf";
+    src: url("../fonts/Bender/Jovanny Lemonad - Bender-BoldItalic.otf");
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Jovanny Lemonad - Bender-Black.otf";
+    src: url("../fonts/Bender/Jovanny Lemonad - Bender-Black.otf");
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Jovanny Lemonad - Bender-BlackItalic.otf";
+    src: url("../fonts/Bender/Jovanny Lemonad - Bender-BlackItalic.otf");
+    font-style: italic;
+    font-weight: 900;
+    font-display: swap;
+}
+

@@ -12,18 +12,28 @@ use Inertia\Inertia;
 class MapController extends Controller
 {
 
+    private $query = 'query { maps(){
+        id, name, normalizedName, enemies,raidDuration,
+        players, wiki, description
+    }}';
+
+    private $layoutDatas = [
+        "title" => "Maps",
+        "page" => "maps",
+    ];
+
     public function index()
     {
-        $maps = Api::tarkovApi("POST", [], 'query { maps(lang: fr){
-            id, name, normalizedName, 
-        }}')['data']['maps'];
+        $maps = Api::tarkovApi(
+            "POST",
+            [],
+            $this->query
+        )['data']['maps'];
 
+        $maps = $this->removeMapsInMapsJson($maps, ["night-factory"]);
 
         return Inertia::render('Maps/Index', [
-            "layoutDatas" => [
-                "title" => "Maps",
-                "page" => "maps",
-            ],
+            "layoutDatas" => $this->layoutDatas,
             "maps" => $maps,
         ]);
     }
@@ -31,11 +41,6 @@ class MapController extends Controller
 
     public function maps($map = null)
     {
-        $layoutDatas = [
-            "title" => "Maps",
-            "page" => "maps",
-        ];
-
         $links = [
             "customs" => "https://mapgenie.io/tarkov/maps/customs?embed=light",
             "interchange" => "https://mapgenie.io/tarkov/maps/interchange?embed=light",
@@ -49,18 +54,16 @@ class MapController extends Controller
             "streets-of-tarkov" => "https://mapgenie.io/tarkov/maps/streets-of-tarkov?embed=light",
         ];
 
-        $query = 'query { maps(name: "Customs"){
-            id, name, enemies
-        }';
-
-        $this->apiGetMap("POST", [], $query);
-
-
-
         return Inertia::render('Maps/Show', [
-            "layoutDatas" => $layoutDatas,
-
+            "layoutDatas" => $this->layoutDatas,
             "link" => $links[$map] ?? null,
         ]);
+    }
+
+    private function removeMapsInMapsJson($maps = [], $mapToRemove = [])
+    {
+        return array_filter($maps, function ($map) use ($mapToRemove) {
+            return !in_array($map['normalizedName'], $mapToRemove);
+        });
     }
 }

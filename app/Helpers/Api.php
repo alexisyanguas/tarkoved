@@ -25,4 +25,24 @@ class Api
 
         return json_decode($data, true);
     }
+
+
+    public $ammoQuery = "query{{
+            ammo (){
+                item{
+                    id,
+                    name,
+                    normalizedName,
+                    shortName,
+                    description,
+                    basePrice,
+                },
+                caliber,
+                weight,
+                tracer,
+                tracerColor,
+                damage,
+                ammoType,
+                armorDamage
+    }}";
 }
