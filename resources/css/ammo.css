@@ -14,6 +14,21 @@
         gap: var(--gap-20);
     }
 
+    .ammo-list_header {
+        display: flex;
+        height: 40px;
+        border: 0;
+        border-bottom: 1px #c9c9c9 solid;
+        .ammo-list_header_searchBar {
+            width: 370px;
+            position: relative;
+            border: 1px solid #c9c9c9;
+            border-radius: 2px;
+            .ammo-list-header_searchBar_Wrapper {
+            }
+        }
+    }
+
     .ammo-list_table {
         width: 100%;
         border-radius: var(--radius-8);
@@ -97,8 +112,8 @@
                                 display: flex;
                                 width: 19px;
                                 height: 19px;
-                                color: #fff;
-                                font-family: var(--font-family-bender-medium);
+                                color: var(--colors-kmrWhite-100);
+                                font-family: var(--font-family-bender-bold);
                                 font-weight: 400;
                                 font-size: 14px;
                                 line-height: 16px;
@@ -129,6 +144,23 @@
                             }
                         }
                     }
+                }
+                .ammo-list_table_row-damage,
+                .ammo-list_table_row-penetration {
+                    padding: 0 16px;
+                    display: flex;
+                    justify-content: center;
+                    color: var(--colors-kmrWhite-100);
+                    align-items: center;
+                    font-weight: 200;
+                    font-size: 20px;
+                    line-height: 30px;
+                }
+                .ammo-list_table_row-damage {
+                    flex-basis: 100px;
+                }
+                .ammo-list_table_row-penetration {
+                    flex-basis: 172px;
                 }
             }
         }
