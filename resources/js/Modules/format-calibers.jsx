@@ -61,8 +61,6 @@ const caliberMap = {
 
 export const caliberArrayWithSplit = () => {
     const ammoTypes = caliberMap;
-    console.log(`ammoTypes`, ammoTypes);
-    console.log(`caliberMap`, caliberMap);
 
     // let gaugeIndex = ammoTypes.findIndex(
     //     (ammoType) => ammoType.name === "12 Gauge"

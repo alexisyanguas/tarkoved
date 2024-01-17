@@ -9,7 +9,129 @@
         justify-content: center;
         align-items: center;
         width: 100%;
+        background-color: var(--colors-kmrWhite-100);
+        border-radius: var(--radius-8);
         gap: var(--gap-20);
+    }
+
+    .ammo-list_table {
+        width: 100%;
+        border-radius: var(--radius-8);
+        .ammo-list_table_row {
+            display: flex;
+            -moz-column-gap: 8px;
+            column-gap: 8px;
+            min-height: 100px;
+            padding: 8px 16px;
+            background-color: #424242;
+            border-radius: var(--radius-8);
+            /* :nth-child(odd) {
+                background-color: #424242;
+            }
+            :nth-child(even) {
+                background-color: #2c2c2c;
+            } */
+            .ammo-list_table_row-data {
+                display: flex;
+                flex-grow: 1;
+                .ammo-list_table_row-main_data {
+                    display: flex;
+                    flex-basis: 354px;
+                    .ammo-list_table_row-main_data-icon {
+                        position: relative;
+                        width: 84px;
+                        height: 84px;
+                        background-color: #2f2f20;
+                        border: 1px solid #424749;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        img {
+                            position: relative;
+                            width: 84px;
+                            height: 84px;
+                            background-color: #2f2f20;
+                            border: 1px solid #424749;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+                        p {
+                            position: absolute;
+                            top: 2px;
+                            right: 2px;
+                            font-family: var(--font-family-roboto);
+                            font-weight: 500;
+                            font-size: 14px;
+                            line-height: 14px;
+                            color: #fff;
+                            -webkit-user-select: none;
+                            -moz-user-select: none;
+                            user-select: none;
+                            overflow: hidden;
+                            width: 95%;
+                            white-space: nowrap;
+                            text-align: end;
+                        }
+                    }
+                    .ammo-list_table_row-main_data-info {
+                        padding: 4px 0 4px 8px;
+                        min-width: 153px;
+                        display: flex;
+                        flex-direction: column;
+                        gap: var(--gap-5);
+                        .ammo-list_table_row-main_data-info_name {
+                            max-width: 230px;
+                            width: 100%;
+                            color: var(--colors-tarkovYellow-50);
+                            font-family: var(--font-family-bender-medium);
+                            font-weight: 400;
+                            font-size: 20px;
+                            line-height: 24px;
+                        }
+                        .ammo-list_table_row-main_data-info_penetration {
+                            display: flex;
+                            -moz-column-gap: 6px;
+                            column-gap: 6px;
+                            .ammo-list_table_row-main_data-info_penetration_class {
+                                display: flex;
+                                width: 19px;
+                                height: 19px;
+                                color: #fff;
+                                font-family: var(--font-family-bender-medium);
+                                font-weight: 400;
+                                font-size: 14px;
+                                line-height: 16px;
+                                border-radius: 3px;
+                                justify-content: center;
+                                align-items: center;
+                            }
+                            .ammo-list_table_row-main_data-info_penetration_class_none {
+                                background-color: #cf0b04;
+                            }
+                            .ammo-list_table_row-main_data-info_penetration_class_verybad {
+                                background-color: #dc3b07;
+                            }
+                            .ammo-list_table_row-main_data-info_penetration_class_bad {
+                                background-color: #ea6b0a;
+                            }
+                            .ammo-list_table_row-main_data-info_penetration_class_belowaverage {
+                                background-color: #f99d10;
+                            }
+                            .ammo-list_table_row-main_data-info_penetration_class_average {
+                                background-color: #c0b825;
+                            }
+                            .ammo-list_table_row-main_data-info_penetration_class_good {
+                                background-color: #87d43d;
+                            }
+                            .ammo-list_table_row-main_data-info_penetration_class_best {
+                                background-color: #4cf057;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -18,22 +140,19 @@
     flex-wrap: wrap;
     gap: var(--gap-10);
     width: 100%;
-    height: 10rem;
     padding: var(--gap-10);
-    background-color: var(--colors-kmrWhite-100);
-    border-radius: var(--radius-8);
     box-shadow: var(--shadow-1);
     transition: 0.24s ease all;
 }
 
 .ammo-basic-button_bullet {
-    border-radius: var(--radius-8);
     height: 2.5rem;
     text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: var(--gap-10);
+    border-radius: var(--radius-8);
     border: 1px transparent solid;
     column-gap: var(--gap-10);
     color: var(--colors-kmrWhite-100);

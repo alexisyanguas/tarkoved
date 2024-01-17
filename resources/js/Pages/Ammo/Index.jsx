@@ -2,36 +2,11 @@ import React, { useState } from "react";
 import Layout from "../../Components/Layouts/Layout";
 import { SVG } from "../../Components/Ammos/Svg";
 import { caliberArrayWithSplit } from "../../Modules/format-calibers";
-import {
-    Caliber9x18PM,
-    Caliber762x25TT,
-    Caliber9x19PARA,
-    Caliber9x21,
-    Caliber1143x23ACP,
-    Caliber9x33R,
-    Caliber57x28,
-    Caliber46x30,
-    Caliber545x39,
-    Caliber556x45NATO,
-    Caliber762x35,
-    Caliber762x39,
-    Caliber366TKM,
-    Caliber9x39,
-    Caliber68x51,
-    Caliber762x51,
-    Caliber762x54R,
-    Caliber127x55,
-    Caliber86x70,
-    Caliber12g,
-    Caliber20g,
-    Caliber23x75,
-    Caliber40x46,
-} from "../../Components/Ammos/Paths";
 
 export default function Index({ layoutDatas, ammos }) {
     const [caliberArray, setCaliberArray] = useState(ammos);
-
     const caliberMap = caliberArrayWithSplit();
+    console.log(caliberMap);
 
     const skipTypes = [
         "Caliber30x29",
@@ -69,7 +44,47 @@ export default function Index({ layoutDatas, ammos }) {
                             );
                         })}
                     </div>
-                    <div className="ammo-list_container"></div>
+                    <div className="ammo-list_header"></div>
+                    <div className="ammo-list_table">
+                        <div className="ammo-list_table_row">
+                            <div className="ammo-list_table_row-data">
+                                <div className="ammo-list_table_row-main_data">
+                                    <div className="ammo-list_table_row-main_data-icon">
+                                        <img src="/img/traders/54cb50c76803fa8b248b4571.jpg" />
+                                        <p>M61</p>
+                                    </div>
+                                    <div className="ammo-list_table_row-main_data-info">
+                                        <span className="ammo-list_table_row-main_data-info_name">
+                                            M61
+                                        </span>
+                                        <div className="ammo-list_table_row-main_data-info_penetration">
+                                            <p className="ammo-list_table_row-main_data-info_penetration_class ammo-list_table_row-main_data-info_penetration_class_best">
+                                                6
+                                            </p>
+                                            <p className="ammo-list_table_row-main_data-info_penetration_class ammo-list_table_row-main_data-info_penetration_class_best">
+                                                6
+                                            </p>
+                                            <p className="ammo-list_table_row-main_data-info_penetration_class ammo-list_table_row-main_data-info_penetration_class_best">
+                                                6
+                                            </p>
+                                            <p className="ammo-list_table_row-main_data-info_penetration_class ammo-list_table_row-main_data-info_penetration_class_good">
+                                                5
+                                            </p>
+                                            <p className="ammo-list_table_row-main_data-info_penetration_class ammo-list_table_row-main_data-info_penetration_class_average">
+                                                4
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="ammo-list_table_row-damage">
+                                    78
+                                </div>
+                                <div className="ammo-list_table_row-penetration">
+                                    2
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </Layout>
