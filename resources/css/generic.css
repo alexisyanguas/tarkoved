@@ -52,3 +52,7 @@ h1 {
     font-weight: 700;
     color: var(--colors-tarkovYellow-100);
 }
+
+nav.navigation {
+    display: none !important;
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../../Components/Layouts/Layout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPeopleGroup } from "@fortawesome/free-solid-svg-icons";
+import { faPeopleGroup, faClock } from "@fortawesome/free-solid-svg-icons";
 
 const Index = ({ layoutDatas, maps }) => {
     console.log(`maps`, maps);
@@ -22,9 +22,13 @@ const Index = ({ layoutDatas, maps }) => {
                                     <span className="map-container_list_item_infos-name">
                                         {map?.name}
                                     </span>
-                                    <span className="map-container_list_item_infos-players">
+                                    <span className="map-container_list_item_infos-span">
                                         <FontAwesomeIcon icon={faPeopleGroup} />
                                         {map?.players}
+                                    </span>
+                                    <span className="map-container_list_item_infos-span">
+                                        <FontAwesomeIcon icon={faClock} />
+                                        {map?.raidDuration} min
                                     </span>
                                 </div>
                                 <img

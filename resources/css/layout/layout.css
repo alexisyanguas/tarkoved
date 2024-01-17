@@ -16,4 +16,8 @@
     display: flex;
     background-color: var(--colors-kmrBlack-50);
     border-bottom: 4px solid var(--colors-kmrGray-75);
+    &.fixed{
+        position: fixed;
+        height: 60px;
+    }
 }

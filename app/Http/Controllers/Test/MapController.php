@@ -13,7 +13,7 @@ class MapController extends Controller
 {
 
     private $query = 'query { maps(){
-        id, name, normalizedName, enemies,raidDuration,
+        id, name, normalizedName, enemies, raidDuration,
         players, wiki, description
     }}';
 
@@ -42,16 +42,16 @@ class MapController extends Controller
     public function maps($map = null)
     {
         $links = [
-            "customs" => "https://mapgenie.io/tarkov/maps/customs?embed=light",
-            "interchange" => "https://mapgenie.io/tarkov/maps/interchange?embed=light",
-            "factory" => "https://mapgenie.io/tarkov/maps/factory?embed=light",
-            "woods" => "https://mapgenie.io/tarkov/maps/woods?embed=light",
-            "labs" => "https://mapgenie.io/tarkov/maps/labs?embed=light",
-            "lighthouse" => "https://mapgenie.io/tarkov/maps/lighthouse?embed=light",
-            "shorline" => "https://mapgenie.io/tarkov/maps/shoreline?embed=light",
-            "ground-zero" => "https://mapgenie.io/tarkov/maps/ground-zero?embed=light",
-            "reserve" => "https://mapgenie.io/tarkov/maps/reserve?embed=light",
-            "streets-of-tarkov" => "https://mapgenie.io/tarkov/maps/streets-of-tarkov?embed=light",
+            "customs" => "https://tarkov.dev/map/customs",
+            "interchange" => "https://tarkov.dev/map/interchange",
+            "factory" => "https://tarkov.dev/map/factory",
+            "woods" => "https://tarkov.dev/map/woods",
+            "the-lab" => "https://tarkov.dev/map/the-lab",
+            "lighthouse" => "https://tarkov.dev/map/lighthouse",
+            "shoreline" => "https://tarkov.dev/map/shoreline",
+            "ground-zero" => "https://tarkov.dev/map/ground-zero",
+            "reserve" => "https://tarkov.dev/map/reserve",
+            "streets-of-tarkov" => "https://tarkov.dev/map/streets-of-tarkov",
         ];
 
         return Inertia::render('Maps/Show', [
