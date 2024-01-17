@@ -4,6 +4,7 @@ import {
     faHome,
     faFish,
     faMapMarkedAlt,
+    faGun,
 } from "@fortawesome/free-solid-svg-icons";
 
 const Logo = ({ handleIsOpen }) => {
@@ -28,9 +29,7 @@ const NavItem = ({ url, name, icon, active = false, navIsOpen = false }) => {
     );
 };
 
-const Navbar = ({
-    page,
-}) => {
+const Navbar = ({ page }) => {
     const [isOpen, setIsOpen] = React.useState(false);
 
     return (
@@ -49,6 +48,13 @@ const Navbar = ({
                     name="Maps"
                     icon={faMapMarkedAlt}
                     active={page === "maps"}
+                    navIsOpen={isOpen}
+                />
+                <NavItem
+                    url="/test/ammo"
+                    name="Ammo"
+                    icon={faGun}
+                    active={page === "ammo"}
                     navIsOpen={isOpen}
                 />
             </ul>

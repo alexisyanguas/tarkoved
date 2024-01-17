@@ -9,7 +9,7 @@ class Api
 
     public static function tarkovApi($method = "POST", $headers = [], $query = "")
     {
-        $url = env('API_TARKOV_URL');
+        $url = env('API_TARKOV_URL', "https://api.tarkov.dev/graphql");
         if ($url == null) return;
 
 
@@ -25,24 +25,4 @@ class Api
 
         return json_decode($data, true);
     }
-
-
-    public $ammoQuery = "query{{
-            ammo (){
-                item{
-                    id,
-                    name,
-                    normalizedName,
-                    shortName,
-                    description,
-                    basePrice,
-                },
-                caliber,
-                weight,
-                tracer,
-                tracerColor,
-                damage,
-                ammoType,
-                armorDamage
-    }}";
 }

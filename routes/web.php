@@ -4,6 +4,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\Test\{
+    AmmoController,
     MapController
 };
 
@@ -35,4 +36,6 @@ Route::prefix("test")->group(function () {
         Route::get("/", [MapController::class, "index"])->name("test.maps");
         Route::get("/{map}", [MapController::class, "maps"]);
     });
+    Route::get("/ammo", [AmmoController::class, "index"])->name("test.ammo");
 });
+

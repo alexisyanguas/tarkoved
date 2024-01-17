@@ -1,4 +1,3 @@
-
 :root {
     --colors-kmrBlack-50: #414141;
     --colors-kmrBlack-100: #333;
@@ -17,6 +16,8 @@
     --font-size-16: 1rem;
     --font-size-20: 1.25rem;
     --font-size-24: 1.5rem;
+
+    --transition-24-all: 0.24s;
 
     --font-family-roboto: "Roboto", sans-serif;
     --font-family-bender-light: "Jovanny Lemonad - Bender-Light.otf", sans-serif;
