@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import Layout from "../../Components/Layouts/Layout";
 import { SVG } from "../../Components/Ammos/Svg";
 import { caliberArrayWithSplit } from "../../Modules/format-calibers";
@@ -28,19 +29,24 @@ import {
 } from "../../Components/Ammos/Paths";
 
 export default function Index({ layoutDatas, ammos }) {
+    const [caliberArray, setCaliberArray] = useState(ammos);
+
     const caliberMap = caliberArrayWithSplit();
-    console.log(`caliberMap`, caliberMap);
+
+    const skipTypes = [
+        "Caliber30x29",
+        "Caliber127x108",
+        "Caliber26x75",
+        "Caliber40mmRU",
+    ];
 
     return (
         <Layout page={layoutDatas.page} title={layoutDatas.title}>
             <div className="ammo-parent_container">
                 <div className="ammo-container">
                     <div className="ammo-filter_container">
-                        {Object.keys(ammos).map((caliberGroup, key) => {
-                            console.log(
-                                `caliberGroup`,
-                                caliberGroup, caliberMap[caliberGroup]
-                            );
+                        {Object.keys(caliberArray).map((caliberGroup, key) => {
+                            if (skipTypes.includes(caliberGroup)) return;
                             return (
                                 <button
                                     className="ammo-basic-button_bullet"
@@ -48,7 +54,10 @@ export default function Index({ layoutDatas, ammos }) {
                                 >
                                     <p>
                                         <SVG>
-                                            {caliberMap[caliberGroup]?.component}
+                                            {
+                                                caliberMap[caliberGroup]
+                                                    ?.component
+                                            }
                                         </SVG>
                                     </p>
                                     <p>{caliberMap[caliberGroup]?.name}</p>
