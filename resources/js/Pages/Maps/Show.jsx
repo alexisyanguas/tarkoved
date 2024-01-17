@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Layout from "../../Components/Layouts/Layout";
 
-const Show = ({ layoutDatas, link }) => {
+const Show = ({ layoutDatas, content = "", link }) => {
     return (
         <Layout
             title={layoutDatas.title}
@@ -17,6 +17,7 @@ const Show = ({ layoutDatas, link }) => {
                 src={link}
                 style={{ width: "100%", height: "100vh" }}
             ></iframe>
+            {/* <div dangerouslySetInnerHTML={{ __html: content }} /> */}
         </Layout>
     );
 };

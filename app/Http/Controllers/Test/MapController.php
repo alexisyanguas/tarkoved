@@ -50,10 +50,15 @@ class MapController extends Controller
             "reserve" => "https://tarkov.dev/map/reserve",
             "streets-of-tarkov" => "https://tarkov.dev/map/streets-of-tarkov",
         ];
+        // $content = file_get_contents($links[$map] ?? null);
+        // if (!$content)
+        //     return redirect()->route('maps.index');
+
 
         return Inertia::render('Maps/Show', [
             "layoutDatas" => [...$this->layoutDatas, "user" => auth()->user()],
             "link" => $links[$map] ?? null,
+            // "content" => $content
         ]);
     }
 
