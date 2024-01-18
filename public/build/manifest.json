@@ -1,0 +1,99 @@
+{
+  "_Layout-88e6faf6.js": {
+    "file": "assets/Layout-88e6faf6.js",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "resources/fonts/Bender/Jovanny Lemonad - Bender-Black.otf": {
+    "file": "assets/Jovanny Lemonad - Bender-Black-ce8fd7b8.otf",
+    "src": "resources/fonts/Bender/Jovanny Lemonad - Bender-Black.otf"
+  },
+  "resources/fonts/Bender/Jovanny Lemonad - Bender-BlackItalic.otf": {
+    "file": "assets/Jovanny Lemonad - Bender-BlackItalic-770ab13f.otf",
+    "src": "resources/fonts/Bender/Jovanny Lemonad - Bender-BlackItalic.otf"
+  },
+  "resources/fonts/Bender/Jovanny Lemonad - Bender-Bold.otf": {
+    "file": "assets/Jovanny Lemonad - Bender-Bold-36de62cf.otf",
+    "src": "resources/fonts/Bender/Jovanny Lemonad - Bender-Bold.otf"
+  },
+  "resources/fonts/Bender/Jovanny Lemonad - Bender-BoldItalic.otf": {
+    "file": "assets/Jovanny Lemonad - Bender-BoldItalic-d2949225.otf",
+    "src": "resources/fonts/Bender/Jovanny Lemonad - Bender-BoldItalic.otf"
+  },
+  "resources/fonts/Bender/Jovanny Lemonad - Bender-Italic.otf": {
+    "file": "assets/Jovanny Lemonad - Bender-Italic-f7d9af1a.otf",
+    "src": "resources/fonts/Bender/Jovanny Lemonad - Bender-Italic.otf"
+  },
+  "resources/fonts/Bender/Jovanny Lemonad - Bender-Light.otf": {
+    "file": "assets/Jovanny Lemonad - Bender-Light-7c042b70.otf",
+    "src": "resources/fonts/Bender/Jovanny Lemonad - Bender-Light.otf"
+  },
+  "resources/fonts/Bender/Jovanny Lemonad - Bender.otf": {
+    "file": "assets/Jovanny Lemonad - Bender-b394fe0c.otf",
+    "src": "resources/fonts/Bender/Jovanny Lemonad - Bender.otf"
+  },
+  "resources/js/Pages/Ammo/Index.jsx": {
+    "file": "assets/Index-1e248df7.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_Layout-88e6faf6.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Ammo/Index.jsx"
+  },
+  "resources/js/Pages/Maps/Index.jsx": {
+    "file": "assets/Index-d1b7e199.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_Layout-88e6faf6.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Maps/Index.jsx"
+  },
+  "resources/js/Pages/Maps/Show.jsx": {
+    "file": "assets/Show-9d8b0076.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_Layout-88e6faf6.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Maps/Show.jsx"
+  },
+  "resources/js/Pages/Welcome.jsx": {
+    "file": "assets/Welcome-0fd1dc21.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_Layout-88e6faf6.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Welcome.jsx"
+  },
+  "resources/js/app.css": {
+    "file": "assets/app-00c87a7b.css",
+    "src": "resources/js/app.css"
+  },
+  "resources/js/app.jsx": {
+    "assets": [
+      "assets/Jovanny Lemonad - Bender-b394fe0c.otf",
+      "assets/Jovanny Lemonad - Bender-Light-7c042b70.otf",
+      "assets/Jovanny Lemonad - Bender-Italic-f7d9af1a.otf",
+      "assets/Jovanny Lemonad - Bender-Bold-36de62cf.otf",
+      "assets/Jovanny Lemonad - Bender-BoldItalic-d2949225.otf",
+      "assets/Jovanny Lemonad - Bender-Black-ce8fd7b8.otf",
+      "assets/Jovanny Lemonad - Bender-BlackItalic-770ab13f.otf"
+    ],
+    "css": [
+      "assets/app-00c87a7b.css"
+    ],
+    "dynamicImports": [
+      "resources/js/Pages/Ammo/Index.jsx",
+      "resources/js/Pages/Maps/Index.jsx",
+      "resources/js/Pages/Maps/Show.jsx",
+      "resources/js/Pages/Welcome.jsx"
+    ],
+    "file": "assets/app-757fa5df.js",
+    "isEntry": true,
+    "src": "resources/js/app.jsx"
+  }
+}
