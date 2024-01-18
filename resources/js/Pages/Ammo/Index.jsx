@@ -10,7 +10,6 @@ export default function Index({ layoutDatas, ammos }) {
     const [caliberSelected, setCaliberSelected] = useState(null);
 
     const filterAmmos = useMemo(() => {
-        console.log(caliberSelected);
         if (caliberSelected === null) return Object.entries(ammos);
 
         return Object.entries(ammos).filter((ammo) => {
@@ -28,7 +27,6 @@ export default function Index({ layoutDatas, ammos }) {
                 <div className="ammo-container">
                     <div className="ammo-filter_container">
                         {calibers.map((caliber, index) => {
-                            console.log(`caliber`, caliber);
                             return (
                                 <button
                                     key={`caliber-${index}`}

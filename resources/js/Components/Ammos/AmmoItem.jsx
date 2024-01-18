@@ -1,4 +1,5 @@
 const AmmoItem = ({ ammo, index }) => {
+    console.log(ammo);
     return (
         <div
             className="ammo-list_table_row"
@@ -8,11 +9,11 @@ const AmmoItem = ({ ammo, index }) => {
                 <div className="ammo-list_table_row-main_data">
                     <div className="ammo-list_table_row-main_data-icon">
                         <img src="/img/traders/54cb50c76803fa8b248b4571.jpg" />
-                        <p>M61</p>
+                        <p>{ammo?.item?.shortName}</p>
                     </div>
                     <div className="ammo-list_table_row-main_data-info">
                         <span className="ammo-list_table_row-main_data-info_name">
-                            {ammo?.item?.name}
+                            {ammo?.item?.shortName}
                         </span>
                         <div className="ammo-list_table_row-main_data-info_penetration">
                             <p className="ammo-list_table_row-main_data-info_penetration_class ammo-list_table_row-main_data-info_penetration_class_best">
@@ -34,10 +35,18 @@ const AmmoItem = ({ ammo, index }) => {
                     </div>
                 </div>
                 <div className="ammo-list_table_row-other_data">
-                    <div className="ammo-list_table_row-damage">78</div>
-                    <div className="ammo-list_table_row-penetration">2</div>
-                    <div className="ammo-list_table_row-frag">40%</div>
-                    <div className="ammo-list_table_row-recoil">-7</div>
+                    <div className="ammo-list_table_row-damage">
+                        {ammo?.damage}
+                    </div>
+                    <div className="ammo-list_table_row-penetration">
+                        {ammo?.armorDamage}
+                    </div>
+                    <div className="ammo-list_table_row-frag">
+                        {(ammo?.fragmentationChance * 100).toFixed(0) + "%"}
+                    </div>
+                    <div className="ammo-list_table_row-recoil">
+                        {ammo?.recoilModifier}
+                    </div>
                     <div className="ammo-list_table_row-accuracy">+10%</div>
                     <div className="ammo-list_table_row-speed">878 m/s</div>
                 </div>

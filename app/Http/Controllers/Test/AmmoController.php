@@ -21,7 +21,7 @@ class AmmoController extends Controller
             description, basePrice,
         },
         caliber, weight, tracer, tracerColor, 
-        damage, ammoType, armorDamage
+        damage, ammoType, armorDamage, fragmentationChance, recoilModifier
     }}";
 
     public function index()
