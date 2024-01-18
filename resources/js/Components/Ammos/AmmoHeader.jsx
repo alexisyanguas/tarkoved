@@ -38,7 +38,7 @@ const AmmoHeader = () => {
             <div className="ammo-list_header_buttons_wrapper">
                 <button id="damage" className="ammo-list_header_buttons_damage">
                     Damage
-                    <svg
+                    {/* <svg
                         className=" ammo-arrow-icon ammo-arrow-icon_hidden "
                         width="10"
                         height="5"
@@ -50,14 +50,14 @@ const AmmoHeader = () => {
                             d="M0 5L5 0L10 5H0Z"
                             fill="var(--colors-kmrBlack-50)"
                         ></path>
-                    </svg>
+                    </svg> */}
                 </button>
                 <button
                     id="armorPenetration"
                     className="ammo-list_header_buttons_penetration"
                 >
                     Penetration
-                    <svg
+                    {/* <svg
                         className=" ammo-arrow-icon ammo-arrow-icon_hidden "
                         width="10"
                         height="5"
@@ -69,14 +69,14 @@ const AmmoHeader = () => {
                             d="M0 5L5 0L10 5H0Z"
                             fill="var(--colors-kmrBlack-50)"
                         ></path>
-                    </svg>
+                    </svg> */}
                 </button>
                 <button
                     id="armorFrag"
                     className="ammo-list_header_buttons_frag"
                 >
                     Frag
-                    <svg
+                    {/* <svg
                         className=" ammo-arrow-icon ammo-arrow-icon_hidden "
                         width="10"
                         height="5"
@@ -88,11 +88,11 @@ const AmmoHeader = () => {
                             d="M0 5L5 0L10 5H0Z"
                             fill="var(--colors-kmrBlack-50)"
                         ></path>
-                    </svg>
+                    </svg> */}
                 </button>
                 <button id="recoil" className="ammo-list_header_buttons_recoil">
                     Recoil
-                    <svg
+                    {/* <svg
                         className=" ammo-arrow-icon ammo-arrow-icon_hidden "
                         width="10"
                         height="5"
@@ -104,14 +104,14 @@ const AmmoHeader = () => {
                             d="M0 5L5 0L10 5H0Z"
                             fill="var(--colors-kmrBlack-50)"
                         ></path>
-                    </svg>
+                    </svg> */}
                 </button>
                 <button
                     id="accuracy"
                     className="ammo-list_header_buttons_accuracy"
                 >
                     Accuracy
-                    <svg
+                    {/* <svg
                         className=" ammo-arrow-icon ammo-arrow-icon_hidden "
                         width="10"
                         height="5"
@@ -123,11 +123,11 @@ const AmmoHeader = () => {
                             d="M0 5L5 0L10 5H0Z"
                             fill="var(--colors-kmrBlack-50)"
                         ></path>
-                    </svg>
+                    </svg> */}
                 </button>
                 <button id="speed" className="ammo-list_header_buttons_speed">
                     Speed
-                    <svg
+                    {/* <svg
                         className=" ammo-arrow-icon ammo-arrow-icon_hidden "
                         width="10"
                         height="5"
@@ -139,7 +139,7 @@ const AmmoHeader = () => {
                             d="M0 5L5 0L10 5H0Z"
                             fill="var(--colors-kmrBlack-50)"
                         ></path>
-                    </svg>
+                    </svg> */}
                 </button>
             </div>
         </div>

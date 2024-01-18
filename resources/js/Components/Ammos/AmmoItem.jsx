@@ -8,7 +8,10 @@ const AmmoItem = ({ ammo, index }) => {
             <div className="ammo-list_table_row-data">
                 <div className="ammo-list_table_row-main_data">
                     <div className="ammo-list_table_row-main_data-icon">
-                        <img src="/img/traders/54cb50c76803fa8b248b4571.jpg" />
+                        <img
+                            src={ammo?.item.image512pxLink ?? ""}
+                            alt={ammo?.item.shortName}
+                        />
                         <p>{ammo?.item?.shortName}</p>
                     </div>
                     <div className="ammo-list_table_row-main_data-info">
@@ -44,11 +47,44 @@ const AmmoItem = ({ ammo, index }) => {
                     <div className="ammo-list_table_row-frag">
                         {(ammo?.fragmentationChance * 100).toFixed(0) + "%"}
                     </div>
-                    <div className="ammo-list_table_row-recoil">
+                    {/* <div className="ammo-list_table_row-recoil">
                         {ammo?.recoilModifier ? ammo?.recoilModifier * 100 : ""}
+                    </div> */}
+                    <div
+                        className={`ammo-list_table_row-recoil ${
+                            ammo?.recoilModifier < 0
+                                ? "best"
+                                : ammo?.recoilModifier * 100 <= 25
+                                ? "belowaverage"
+                                : ammo?.recoilModifier * 100 <= 50
+                                ? "bad"
+                                : ammo?.recoilModifier * 100 > 100
+                                ? "none"
+                                : ""
+                        }`}
+                    >
+                        {ammo?.recoilModifier
+                            ? Math.round(ammo?.recoilModifier * 100)
+                            : ""}
                     </div>
-                    <div className="ammo-list_table_row-accuracy">+10%</div>
-                    <div className="ammo-list_table_row-speed">878 m/s</div>
+                    <div
+                        className={`ammo-list_table_row-accuracy ${
+                            ammo?.accuracyModifier < 0
+                                ? "none"
+                                : ammo?.accuracyModifier * 100 <= 100
+                                ? "good"
+                                : ammo?.accuracyModifier * 100 > 100
+                                ? "best"
+                                : ""
+                        }`}
+                    >
+                        {ammo?.accuracyModifier
+                            ? Math.round(ammo?.accuracyModifier * 100) + "%"
+                            : ""}
+                    </div>
+                    <div className="ammo-list_table_row-speed">
+                        {ammo?.initialSpeed} m/s
+                    </div>
                 </div>
             </div>
         </div>

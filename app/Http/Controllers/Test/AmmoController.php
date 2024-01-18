@@ -18,10 +18,10 @@ class AmmoController extends Controller
     private $ammoQuery = "query{ ammo (){
         item{
             id, name, normalizedName, shortName,
-            description, basePrice,
+            description, basePrice, image512pxLink
         },
         caliber, weight, tracer, tracerColor, 
-        damage, ammoType, armorDamage, fragmentationChance, recoilModifier
+        damage, ammoType, armorDamage, fragmentationChance, recoilModifier,accuracyModifier,initialSpeed
     }}";
 
     public function index()

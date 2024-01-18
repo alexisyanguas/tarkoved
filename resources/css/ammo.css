@@ -201,25 +201,39 @@
                                     align-items: center;
                                 }
                                 .ammo-list_table_row-main_data-info_penetration_class_none {
-                                    background-color: #cf0b04;
+                                    background-color: var(
+                                        colors-tarkovBullet-none
+                                    );
                                 }
                                 .ammo-list_table_row-main_data-info_penetration_class_verybad {
-                                    background-color: #dc3b07;
+                                    background-color: var(
+                                        --colors-tarkovBullet-verybad
+                                    );
                                 }
                                 .ammo-list_table_row-main_data-info_penetration_class_bad {
-                                    background-color: #ea6b0a;
+                                    background-color: var(
+                                        --colors-tarkovBullet-bad
+                                    );
                                 }
                                 .ammo-list_table_row-main_data-info_penetration_class_belowaverage {
-                                    background-color: #f99d10;
+                                    background-color: var(
+                                        --colors-tarkovBullet-belowaverage
+                                    );
                                 }
                                 .ammo-list_table_row-main_data-info_penetration_class_average {
-                                    background-color: #c0b825;
+                                    background-color: var(
+                                        --colors-tarkovBullet-average
+                                    );
                                 }
                                 .ammo-list_table_row-main_data-info_penetration_class_good {
-                                    background-color: #87d43d;
+                                    background-color: var(
+                                        --colors-tarkovBullet-good
+                                    );
                                 }
                                 .ammo-list_table_row-main_data-info_penetration_class_best {
-                                    background-color: #4cf057;
+                                    background-color: var(
+                                        --colors-tarkovBullet-best
+                                    );
                                 }
                             }
                         }

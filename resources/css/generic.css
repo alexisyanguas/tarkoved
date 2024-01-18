@@ -6,6 +6,13 @@
 
     --colors-tarkovYellow-50: #dbc59c;
     --colors-tarkovYellow-100: #877f70;
+    --colors-tarkovBullet-none: #cf0b04;
+    --colors-tarkovBullet-verybad: #dc3b07;
+    --colors-tarkovBullet-bad: #ea6b0a;
+    --colors-tarkovBullet-belowaverage: #f99d10;
+    --colors-tarkovBullet-average: #c0b825;
+    --colors-tarkovBullet-good: #87d43d;
+    --colors-tarkovBullet-best: #4cf057;
 
     --radius-8: 0.5rem;
 
@@ -58,4 +65,30 @@ h1 {
 
 nav.navigation {
     display: none !important;
+}
+
+.best {
+    color: var(--colors-tarkovBullet-best) !important;
+}
+.good {
+    color: var(--colors-tarkovBullet-good) !important;
+}
+.average {
+    color: var(--colors-tarkovBullet-average) !important;
+}
+.belowaverage {
+    color: var(--colors-tarkovBullet-belowaverage) !important;
+}
+.bad {
+    color: var(--colors-tarkovBullet-bad) !important;
+}
+.verybad {
+    color: var(--colors-tarkovBullet-verybad) !important;
+}
+.none {
+    color: var(--colors-tarkovBullet-none) !important;
+}
+
+.hide {
+    display: none;
 }
