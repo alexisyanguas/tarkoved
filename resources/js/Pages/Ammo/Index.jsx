@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import Layout from "../../Components/Layouts/Layout";
 import { SVG } from "../../Components/Ammos/Svg";
 import AmmoHeader from "../../Components/Ammos/AmmoHeader";
@@ -8,6 +8,15 @@ import { caliberArrayWithSplit } from "../../Modules/format-calibers";
 export default function Index({ layoutDatas, ammos }) {
     const calibers = caliberArrayWithSplit();
     const [caliberSelected, setCaliberSelected] = useState(null);
+
+    const filterAmmos = useMemo(() => {
+        console.log(caliberSelected);
+        if (caliberSelected === null) return Object.entries(ammos);
+
+        return Object.entries(ammos).filter((ammo) => {
+            return ammo[0] === caliberSelected;
+        });
+    }, [caliberSelected]);
 
     return (
         <Layout
@@ -19,13 +28,12 @@ export default function Index({ layoutDatas, ammos }) {
                 <div className="ammo-container">
                     <div className="ammo-filter_container">
                         {calibers.map((caliber, index) => {
+                            console.log(`caliber`, caliber);
                             return (
                                 <button
                                     key={`caliber-${index}`}
                                     onClick={() => {
-                                        setCaliberSelected(
-                                            caliber.name ?? null
-                                        );
+                                        setCaliberSelected(caliber.id ?? null);
                                     }}
                                     className={`ammo-basic-button_bullet ${
                                         caliberSelected === caliber.name &&
@@ -43,7 +51,7 @@ export default function Index({ layoutDatas, ammos }) {
                     <div className="ammo-list">
                         <AmmoHeader />
                         <div className="ammo-list_table">
-                            {Object.entries(ammos).map((ammo, index) => {
+                            {filterAmmos.map((ammo, index) => {
                                 return (
                                     <div key={`caliber_group-${index}`}>
                                         {ammo[1].map((ammo) => {
