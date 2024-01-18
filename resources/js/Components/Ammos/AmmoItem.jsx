@@ -45,7 +45,7 @@ const AmmoItem = ({ ammo, index }) => {
                         {(ammo?.fragmentationChance * 100).toFixed(0) + "%"}
                     </div>
                     <div className="ammo-list_table_row-recoil">
-                        {ammo?.recoilModifier}
+                        {ammo?.recoilModifier ? ammo?.recoilModifier * 100 : ""}
                     </div>
                     <div className="ammo-list_table_row-accuracy">+10%</div>
                     <div className="ammo-list_table_row-speed">878 m/s</div>
