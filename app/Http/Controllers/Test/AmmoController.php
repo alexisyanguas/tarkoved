@@ -21,20 +21,33 @@ class AmmoController extends Controller
             description, basePrice,
         },
         caliber, weight, tracer, tracerColor, 
-        damage, ammoType, armorDamage
+        damage, ammoType, armorDamage, fragmentationChance, recoilModifier
     }}";
 
     public function index()
     {
         $ammos = Api::tarkovApi("POST", [], $this->ammoQuery)['data']['ammo'];
-
-        // Group by caliber
         $ammos = collect($ammos)->groupBy('caliber')->toArray();
-        // dd($ammos);
+        $caliber = $this->getAllCalibers($ammos);
+
 
         return Inertia::render('Ammo/Index', [
             "layoutDatas" => [...$this->layoutDatas, "user" => auth()->user()],
             "ammos"       => $ammos,
+            "calibers"    => $caliber,
         ]);
+    }
+
+    private function getAllCalibers($ammos)
+    {
+        $calibers = [];
+        foreach ($ammos as $ammo) {
+            foreach ($ammo as $a) {
+                if (!in_array($a['caliber'], $calibers)) {
+                    $calibers[] = $a['caliber'];
+                }
+            }
+        }
+        return $calibers;
     }
 }

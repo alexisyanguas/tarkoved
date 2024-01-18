@@ -1,4 +1,12 @@
 .ammo-parent_container {
+    --flexbasis-mainData: 30%;
+    --flexbasis-damage: 100px;
+    --flexbasis-penetration: 172px;
+    --flexbasis-frag: 100px;
+    --flexbasis-recoil: 100px;
+    --flexbasis-accuracy: 110px;
+    --flexbasis-speed: 120px;
+
     flex: 1;
     display: flex;
     padding: var(--gap-16);
@@ -14,54 +22,116 @@
         gap: var(--gap-20);
     }
 
-    .ammo-list_header {
-        display: flex;
-        height: 40px;
-        border: 0;
-        border-bottom: 1px #c9c9c9 solid;
-        .ammo-list_header_searchBar {
-            width: 370px;
-            position: relative;
-            border: 1px solid #c9c9c9;
-            border-radius: 2px;
-            .ammo-list-header_searchBar_Wrapper {
+    .ammo-list {
+        width: 100%;
+        .ammo-list_header {
+            padding: 4px 16px;
+            display: flex;
+            border: 0;
+            .ammo-list_header_searchBar {
+                width: var(--flexbasis-mainData);
+                position: relative;
+                border: 1px solid #c9c9c9;
+                border-radius: 2px;
+                .ammo-list_header_searchBar_wrapper {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-wrap: nowrap;
+                    .ammo-list_header_searchBar_input {
+                        width: 100%;
+                        padding: 8px 9px;
+                        background-color: transparent;
+                        font-size: 15px;
+                        font-weight: 400;
+                        color: #b0b0b0;
+                        line-height: 22px;
+                        border: none;
+                    }
+                    .ammo-list_header_searchBar_searchBtn {
+                        padding: 9px 24px;
+                        border: none;
+                        border-left: 1px solid #c9c9c9;
+                        /* border-radius: var(--radius-8); */
+                        &:hover,
+                        &:hover.path {
+                            background-color: var(--colors-kmrBlack-50);
+                            transition: var(--transition-24-all);
+                        }
+                    }
+                }
+            }
+            .ammo-list_header_buttons_wrapper {
+                /* padding-left: 8px; */
+                flex-grow: 1;
+                display: flex;
+                justify-content: center;
+                -moz-column-gap: 8px;
+                column-gap: 8px;
+                .ammo-list_header_buttons_damage,
+                .ammo-list_header_buttons_penetration,
+                .ammo-list_header_buttons_frag,
+                .ammo-list_header_buttons_recoil,
+                .ammo-list_header_buttons_accuracy,
+                .ammo-list_header_buttons_speed {
+                    display: flex;
+                    padding: 8px 4px 8px 16px;
+                    background: 0 0;
+                    color: var(--colors-kmrBlack-50);
+                    border: 0;
+                    font-size: 16px;
+                    font-weight: 300;
+                    line-height: 24px;
+                    justify-content: center;
+                    align-items: center;
+                    -moz-column-gap: 8px;
+                    column-gap: 8px;
+                }
+                .ammo-list_header_buttons_damage {
+                    flex-basis: var(--flexbasis-damage);
+                }
+                .ammo-list_header_buttons_penetration {
+                    flex-basis: var(--flexbasis-penetration);
+                }
+                .ammo-list_header_buttons_frag {
+                    flex-basis: var(--flexbasis-frag);
+                }
+                .ammo-list_header_buttons_recoil {
+                    flex-basis: var(--flexbasis-recoil);
+                }
+                .ammo-list_header_buttons_accuracy {
+                    flex-basis: var(--flexbasis-accuracy);
+                }
+                .ammo-list_header_buttons_speed {
+                    flex-basis: var(--flexbasis-speed);
+                }
             }
         }
-    }
 
-    .ammo-list_table {
-        width: 100%;
-        border-radius: var(--radius-8);
-        .ammo-list_table_row {
-            display: flex;
-            -moz-column-gap: 8px;
-            column-gap: 8px;
-            min-height: 100px;
-            padding: 8px 16px;
-            background-color: #424242;
+        .ammo-list_table {
+            width: 100%;
             border-radius: var(--radius-8);
-            /* :nth-child(odd) {
+            .ammo-list_table_row {
+                display: flex;
+                -moz-column-gap: 8px;
+                column-gap: 8px;
+                min-height: 100px;
+                padding: 8px 16px;
+                background-color: #424242;
+                border-radius: var(--radius-8);
+                /* :nth-child(odd) {
                 background-color: #424242;
             }
             :nth-child(even) {
                 background-color: #2c2c2c;
             } */
-            .ammo-list_table_row-data {
-                display: flex;
-                flex-grow: 1;
-                .ammo-list_table_row-main_data {
+                .ammo-list_table_row-data {
                     display: flex;
-                    flex-basis: 354px;
-                    .ammo-list_table_row-main_data-icon {
-                        position: relative;
-                        width: 84px;
-                        height: 84px;
-                        background-color: #2f2f20;
-                        border: 1px solid #424749;
+                    flex-grow: 1;
+                    .ammo-list_table_row-main_data {
                         display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        img {
+                        flex-basis: var(--flexbasis-mainData);
+                        .ammo-list_table_row-main_data-icon {
                             position: relative;
                             width: 84px;
                             height: 84px;
@@ -70,97 +140,129 @@
                             display: flex;
                             align-items: center;
                             justify-content: center;
-                        }
-                        p {
-                            position: absolute;
-                            top: 2px;
-                            right: 2px;
-                            font-family: var(--font-family-roboto);
-                            font-weight: 500;
-                            font-size: 14px;
-                            line-height: 14px;
-                            color: #fff;
-                            -webkit-user-select: none;
-                            -moz-user-select: none;
-                            user-select: none;
-                            overflow: hidden;
-                            width: 95%;
-                            white-space: nowrap;
-                            text-align: end;
-                        }
-                    }
-                    .ammo-list_table_row-main_data-info {
-                        padding: 4px 0 4px 8px;
-                        min-width: 153px;
-                        display: flex;
-                        flex-direction: column;
-                        gap: var(--gap-5);
-                        .ammo-list_table_row-main_data-info_name {
-                            max-width: 230px;
-                            width: 100%;
-                            color: var(--colors-tarkovYellow-50);
-                            font-family: var(--font-family-bender-medium);
-                            font-weight: 400;
-                            font-size: 20px;
-                            line-height: 24px;
-                        }
-                        .ammo-list_table_row-main_data-info_penetration {
-                            display: flex;
-                            -moz-column-gap: 6px;
-                            column-gap: 6px;
-                            .ammo-list_table_row-main_data-info_penetration_class {
+                            img {
+                                position: relative;
+                                width: 84px;
+                                height: 84px;
+                                background-color: #2f2f20;
+                                border: 1px solid #424749;
                                 display: flex;
-                                width: 19px;
-                                height: 19px;
-                                color: var(--colors-kmrWhite-100);
-                                font-family: var(--font-family-bender-bold);
-                                font-weight: 400;
-                                font-size: 14px;
-                                line-height: 16px;
-                                border-radius: 3px;
-                                justify-content: center;
                                 align-items: center;
+                                justify-content: center;
                             }
-                            .ammo-list_table_row-main_data-info_penetration_class_none {
-                                background-color: #cf0b04;
+                            p {
+                                position: absolute;
+                                top: 2px;
+                                right: 2px;
+                                font-family: var(--font-family-roboto);
+                                font-weight: 500;
+                                font-size: 14px;
+                                line-height: 14px;
+                                color: #fff;
+                                -webkit-user-select: none;
+                                -moz-user-select: none;
+                                user-select: none;
+                                overflow: hidden;
+                                width: 95%;
+                                white-space: nowrap;
+                                text-align: end;
                             }
-                            .ammo-list_table_row-main_data-info_penetration_class_verybad {
-                                background-color: #dc3b07;
+                        }
+                        .ammo-list_table_row-main_data-info {
+                            padding: 4px 0 4px 8px;
+                            min-width: 153px;
+                            display: flex;
+                            flex-direction: column;
+                            gap: var(--gap-5);
+                            .ammo-list_table_row-main_data-info_name {
+                                max-width: 230px;
+                                width: 100%;
+                                color: var(--colors-tarkovYellow-50);
+                                font-family: var(--font-family-bender-medium);
+                                font-weight: 400;
+                                font-size: 20px;
+                                line-height: 24px;
                             }
-                            .ammo-list_table_row-main_data-info_penetration_class_bad {
-                                background-color: #ea6b0a;
-                            }
-                            .ammo-list_table_row-main_data-info_penetration_class_belowaverage {
-                                background-color: #f99d10;
-                            }
-                            .ammo-list_table_row-main_data-info_penetration_class_average {
-                                background-color: #c0b825;
-                            }
-                            .ammo-list_table_row-main_data-info_penetration_class_good {
-                                background-color: #87d43d;
-                            }
-                            .ammo-list_table_row-main_data-info_penetration_class_best {
-                                background-color: #4cf057;
+                            .ammo-list_table_row-main_data-info_penetration {
+                                display: flex;
+                                -moz-column-gap: 6px;
+                                column-gap: 6px;
+                                .ammo-list_table_row-main_data-info_penetration_class {
+                                    display: flex;
+                                    width: 19px;
+                                    height: 19px;
+                                    color: var(--colors-kmrWhite-100);
+                                    font-family: var(--font-family-bender-bold);
+                                    font-weight: 400;
+                                    font-size: 14px;
+                                    line-height: 16px;
+                                    border-radius: 3px;
+                                    justify-content: center;
+                                    align-items: center;
+                                }
+                                .ammo-list_table_row-main_data-info_penetration_class_none {
+                                    background-color: #cf0b04;
+                                }
+                                .ammo-list_table_row-main_data-info_penetration_class_verybad {
+                                    background-color: #dc3b07;
+                                }
+                                .ammo-list_table_row-main_data-info_penetration_class_bad {
+                                    background-color: #ea6b0a;
+                                }
+                                .ammo-list_table_row-main_data-info_penetration_class_belowaverage {
+                                    background-color: #f99d10;
+                                }
+                                .ammo-list_table_row-main_data-info_penetration_class_average {
+                                    background-color: #c0b825;
+                                }
+                                .ammo-list_table_row-main_data-info_penetration_class_good {
+                                    background-color: #87d43d;
+                                }
+                                .ammo-list_table_row-main_data-info_penetration_class_best {
+                                    background-color: #4cf057;
+                                }
                             }
                         }
                     }
-                }
-                .ammo-list_table_row-damage,
-                .ammo-list_table_row-penetration {
-                    padding: 0 16px;
-                    display: flex;
-                    justify-content: center;
-                    color: var(--colors-kmrWhite-100);
-                    align-items: center;
-                    font-weight: 200;
-                    font-size: 20px;
-                    line-height: 30px;
-                }
-                .ammo-list_table_row-damage {
-                    flex-basis: 100px;
-                }
-                .ammo-list_table_row-penetration {
-                    flex-basis: 172px;
+                    .ammo-list_table_row-other_data {
+                        display: flex;
+                        flex: 1;
+                        column-gap: 8px;
+                        justify-content: center;
+                        .ammo-list_table_row-damage,
+                        .ammo-list_table_row-penetration,
+                        .ammo-list_table_row-frag,
+                        .ammo-list_table_row-recoil,
+                        .ammo-list_table_row-accuracy,
+                        .ammo-list_table_row-speed {
+                            padding: 0 16px;
+                            display: flex;
+                            justify-content: center;
+                            color: var(--colors-kmrWhite-100);
+                            align-items: center;
+                            font-weight: 200;
+                            font-size: 20px;
+                            line-height: 30px;
+                        }
+                        .ammo-list_table_row-damage {
+                            flex-basis: var(--flexbasis-damage);
+                        }
+                        .ammo-list_table_row-penetration {
+                            flex-basis: var(--flexbasis-penetration);
+                        }
+                        .ammo-list_table_row-frag {
+                            flex-basis: var(--flexbasis-frag);
+                        }
+                        .ammo-list_table_row-recoil {
+                            flex-basis: var(--flexbasis-recoil);
+                        }
+                        .ammo-list_table_row-accuracy {
+                            flex-basis: var(--flexbasis-accuracy);
+                        }
+                        .ammo-list_table_row-speed {
+                            flex-basis: var(--flexbasis-speed);
+                        }
+                    }
                 }
             }
         }
