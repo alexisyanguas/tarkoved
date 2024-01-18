@@ -45,7 +45,11 @@ export default function Index({ layoutDatas, ammos }) {
                         })}
                     </div>
                     <div className="ammo-list_header">
-                        <div className="ammo-list_header_searchBar"></div>
+                        <div className="ammo-list_header_searchBar">
+                            <div classNam="ammo-list_header_searchBar_wrapp">
+                                
+                            </div>
+                        </div>
                     </div>
                     <div className="ammo-list_table">
                         <div className="ammo-list_table_row">

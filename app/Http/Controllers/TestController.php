@@ -9,6 +9,7 @@ class TestController extends Controller
 {
     public function maps()
     {
+
         return redirect()->route("test.maps");
     }
 }
