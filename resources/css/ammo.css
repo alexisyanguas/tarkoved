@@ -1,4 +1,11 @@
 .ammo-parent_container {
+    --flexbasis-damage: 100px;
+    --flexbasis-penetration: 172px;
+    --flexbasis-speed: 100px;
+    --flexbasis-frag: 100px;
+    --flexbasis-recoil: 100px;
+    --flexbasis-accuracy: 100px;
+
     flex: 1;
     display: flex;
     padding: var(--gap-16);
@@ -24,11 +31,76 @@
             position: relative;
             border: 1px solid #c9c9c9;
             border-radius: 2px;
-            .ammo-list_header_searchBar_wrapp {
+            .ammo-list_header_searchBar_wrapper {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 flex-wrap: nowrap;
+                .ammo-list_header_searchBar_input {
+                    width: 100%;
+                    padding: 8px 9px;
+                    background-color: transparent;
+                    font-size: 15px;
+                    font-weight: 400;
+                    color: #b0b0b0;
+                    line-height: 22px;
+                    border: none;
+                }
+                .ammo-list_header_searchBar_searchBtn {
+                    padding: 7px 24px;
+                    border: none;
+                    border-left: 1px solid #c9c9c9;
+                    background: var(--colors-kmrWhite-100);
+                    /* border-radius: var(--radius-8); */
+                    &:hover,
+                    &:hover.path {
+                        background-color: var(--colors-kmrBlack-50);
+                        transition: var(--transition-24-all);
+                    }
+                }
+            }
+        }
+        .ammo-list_header_buttons_wrapper {
+            padding-left: 8px;
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            -moz-column-gap: 8px;
+            column-gap: 8px;
+            border-bottom: 1px #c9c9c9 solid;
+            .ammo-list_header_buttons_damage,
+            .ammo-list_header_buttons_penetration,
+            .ammo-list_header_buttons_frag,
+            .ammo-list_header_buttons_recoil,
+            .ammo-list_header_buttons_accuracy,
+            .ammo-list_header_buttons_speed {
+                display: flex;
+                padding: 8px 4px 8px 16px;
+                background: 0 0;
+                color: var(--colors-kmrBlack-50);
+                border: 0;
+                font-size: 16px;
+                font-weight: 300;
+                line-height: 24px;
+                justify-content: center;
+                align-items: center;
+                -moz-column-gap: 8px;
+                column-gap: 8px;
+            }
+            .ammo-list_header_buttons_damage {
+                flex-basis: var(--flexbasis-damage);
+            }
+            .ammo-list_header_buttons_penetration {
+                flex-basis: var(--flexbasis-penetration);
+            }
+            .ammo-list_header_buttons_frag {
+                flex-basis: var(--flexbasis-frag);
+            }
+            .ammo-list_header_buttons_recoil {
+                flex-basis: var(--flexbasis-recoil);
+            }
+            .ammo-list_header_buttons_accuracy {
+                flex-basis: var(--flexbasis-accuracy);
             }
         }
     }
@@ -149,22 +221,42 @@
                         }
                     }
                 }
-                .ammo-list_table_row-damage,
-                .ammo-list_table_row-penetration {
-                    padding: 0 16px;
+                .ammo-list_table_row-other_data {
                     display: flex;
                     justify-content: center;
-                    color: var(--colors-kmrWhite-100);
-                    align-items: center;
-                    font-weight: 200;
-                    font-size: 20px;
-                    line-height: 30px;
-                }
-                .ammo-list_table_row-damage {
-                    flex-basis: 100px;
-                }
-                .ammo-list_table_row-penetration {
-                    flex-basis: 172px;
+                    .ammo-list_table_row-damage,
+                    .ammo-list_table_row-penetration,
+                    .ammo-list_table_row-frag,
+                    .ammo-list_table_row-recoil,
+                    .ammo-list_table_row-accuracy,
+                    .ammo-list_table_row-speed {
+                        padding: 0 16px;
+                        display: flex;
+                        justify-content: center;
+                        color: var(--colors-kmrWhite-100);
+                        align-items: center;
+                        font-weight: 200;
+                        font-size: 20px;
+                        line-height: 30px;
+                    }
+                    .ammo-list_table_row-damage {
+                        flex-basis: var(--flexbasis-damage);
+                    }
+                    .ammo-list_table_row-penetration {
+                        flex-basis: var(--flexbasis-penetration);
+                    }
+                    .ammo-list_table_row-frag {
+                        flex-basis: var(--flexbasis-frag);
+                    }
+                    .ammo-list_table_row-recoil {
+                        flex-basis: var(--flexbasis-recoil);
+                    }
+                    .ammo-list_table_row-accuracy {
+                        flex-basis: var(--flexbasis-accuracy);
+                    }
+                    .ammo-list_table_row-speed {
+                        flex-basis: var(--flexbasis-speed);
+                    }
                 }
             }
         }
