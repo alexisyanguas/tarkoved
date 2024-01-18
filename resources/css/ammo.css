@@ -20,28 +20,30 @@
         height: calc(100vh - var(--header-height-60));
         gap: var(--gap-20);
         padding: var(--gap-16);
-
-        /* background-color: var(--colors-kmrWhite-100); */
-        /* border-radius: var(--radius-8); */
     }
 
     .ammo-list {
         width: 100%;
-        height: 100%;
+        height: calc(
+            100vh - 160px - var(--header-height-60) - var(--gap-20) -
+                var(--gap-20)
+        );
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-20);
         .ammo-list_header {
-            padding: 4px 16px;
             display: flex;
-            border: 0;
             .ammo-list_header_searchBar {
                 width: var(--flexbasis-mainData);
                 position: relative;
-                border: 1px solid #c9c9c9;
-                border-radius: 2px;
                 .ammo-list_header_searchBar_wrapper {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
                     flex-wrap: nowrap;
+                    border: 1px solid #c9c9c9;
+                    border-radius: 2px;
+
                     .ammo-list_header_searchBar_input {
                         width: 100%;
                         padding: 8px 9px;
@@ -115,6 +117,10 @@
         .ammo-list_table {
             width: 100%;
             overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: var(--gap-10);
+            flex-grow: 1;
             border-radius: var(--radius-8);
             .ammo-list_table_row {
                 display: flex;
@@ -122,14 +128,11 @@
                 column-gap: 8px;
                 min-height: 100px;
                 padding: 8px 16px;
-                background-color: #424242;
+                background-color: var(--colors-kmrBlack-50);
                 border-radius: var(--radius-8);
-                /* :nth-child(odd) {
-                background-color: #424242;
-            }
-            :nth-child(even) {
-                background-color: #2c2c2c;
-            } */
+                &:nth-child(even) {
+                    background-color: var(--colors-kmrBlack-100);
+                }
                 .ammo-list_table_row-data {
                     display: flex;
                     flex-grow: 1;
@@ -140,8 +143,8 @@
                             position: relative;
                             width: 84px;
                             height: 84px;
-                            background-color: #2f2f20;
-                            border: 1px solid #424749;
+                            background-color: var(--colors-kmrBlack-100);
+                            border: 1px solid var(--colors-kmrBlack-50);
                             display: flex;
                             align-items: center;
                             justify-content: center;
@@ -149,8 +152,8 @@
                                 position: relative;
                                 width: 84px;
                                 height: 84px;
-                                background-color: #2f2f20;
-                                border: 1px solid #424749;
+                                background-color: var(--colors-kmrBlack-100);
+                                border: 1px solid var(--colors-kmrBlack-50);
                                 display: flex;
                                 align-items: center;
                                 justify-content: center;
@@ -296,6 +299,8 @@
     padding: var(--gap-10);
     box-shadow: var(--shadow-1);
     transition: 0.24s ease all;
+    background-color: var(--colors-kmrWhite-100);
+    border-radius: var(--radius-8);
 }
 
 .ammo-basic-button_bullet {
@@ -314,7 +319,7 @@
     &:hover,
     &.active {
         /* background-color: var(--colors-kmrWhite-100); */
-        color: #333;
+        color: var(--colors-kmrBlack-100);
         border: 1px solid var(--colors-tarkovYellow-50);
         color: var(--colors-tarkovYellow-50);
         transition: 0.24s ease all;
