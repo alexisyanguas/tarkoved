@@ -1,0 +1,1 @@
+import{j as t}from"./app-5717204d.js";import{L as o}from"./Layout-c1b14d81.js";const n=({layoutDatas:e,content:i="",link:r})=>t(o,{title:e.title,page:e.page,user:e.user,children:t("iframe",{onLoad:()=>{document.querySelector(".layout-header_container").classList.add("fixed")},src:r,style:{width:"100%",height:"100vh"}})});export{n as default};
