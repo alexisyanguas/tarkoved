@@ -7,8 +7,6 @@
         padding: var(--gap-16);
         display: flex;
         gap: var(--gap-16);
-        flex-wrap: wrap;
-        overflow: auto;
         .map-container_list_item {
             position: relative;
             height: 20rem;

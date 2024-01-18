@@ -27,27 +27,16 @@ class AmmoController extends Controller
     public function index()
     {
         $ammos = Api::tarkovApi("POST", [], $this->ammoQuery)['data']['ammo'];
-        $ammos = collect($ammos)->groupBy('caliber')->toArray();
-        $caliber = $this->getAllCalibers($ammos);
-
+        $ammosOrderedByArmorDamage = collect($ammos)->sortBy(
+            'armorDamage',
+            SORT_REGULAR,
+            true
+        )->reverse()->toArray();
+        $ammosGroupedByCaliber = collect($ammosOrderedByArmorDamage)->groupBy('caliber');
 
         return Inertia::render('Ammo/Index', [
             "layoutDatas" => [...$this->layoutDatas, "user" => auth()->user()],
-            "ammos"       => $ammos,
-            "calibers"    => $caliber,
+            "ammos"       => $ammosGroupedByCaliber,
         ]);
-    }
-
-    private function getAllCalibers($ammos)
-    {
-        $calibers = [];
-        foreach ($ammos as $ammo) {
-            foreach ($ammo as $a) {
-                if (!in_array($a['caliber'], $calibers)) {
-                    $calibers[] = $a['caliber'];
-                }
-            }
-        }
-        return $calibers;
     }
 }

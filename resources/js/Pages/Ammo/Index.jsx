@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import Layout from "../../Components/Layouts/Layout";
 import { SVG } from "../../Components/Ammos/Svg";
 import AmmoHeader from "../../Components/Ammos/AmmoHeader";
@@ -13,7 +13,7 @@ export default function Index({ layoutDatas, ammos }) {
         if (caliberSelected === null) return Object.entries(ammos);
 
         return Object.entries(ammos).filter((ammo) => {
-            return ammo[0] === caliberSelected;
+            return ammo[1][0].caliber === caliberSelected;
         });
     }, [caliberSelected]);
 
@@ -34,7 +34,7 @@ export default function Index({ layoutDatas, ammos }) {
                                         setCaliberSelected(caliber.id ?? null);
                                     }}
                                     className={`ammo-basic-button_bullet ${
-                                        caliberSelected === caliber.name &&
+                                        caliberSelected === caliber.id &&
                                         "active"
                                     }`}
                                 >
@@ -50,18 +50,14 @@ export default function Index({ layoutDatas, ammos }) {
                         <AmmoHeader />
                         <div className="ammo-list_table">
                             {filterAmmos.map((ammo, index) => {
-                                return (
-                                    <div key={`caliber_group-${index}`}>
-                                        {ammo[1].map((ammo) => {
-                                            return (
-                                                <AmmoItem
-                                                    ammo={ammo}
-                                                    index={`caliber_group-${index}`}
-                                                />
-                                            );
-                                        })}
-                                    </div>
-                                );
+                                return ammo[1].map((ammo) => {
+                                    return (
+                                        <AmmoItem
+                                            ammo={ammo}
+                                            index={`caliber_group-${index}`}
+                                        />
+                                    );
+                                });
                             })}
                         </div>
                     </div>

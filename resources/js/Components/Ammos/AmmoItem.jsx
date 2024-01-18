@@ -1,5 +1,4 @@
 const AmmoItem = ({ ammo, index }) => {
-    console.log(ammo);
     return (
         <div
             className="ammo-list_table_row"
