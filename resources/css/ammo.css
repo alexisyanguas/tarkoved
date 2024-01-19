@@ -25,7 +25,7 @@
     .ammo-list {
         width: 100%;
         height: calc(
-            100vh - 160px - var(--header-height-60) - var(--gap-20) -
+            100vh - 210px - var(--header-height-60) - var(--gap-20) -
                 var(--gap-20)
         );
         display: flex;

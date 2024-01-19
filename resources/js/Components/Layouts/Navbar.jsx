@@ -38,7 +38,7 @@ const NavItem = ({ url, name, icon, active = false, navIsOpen = false }) => {
 
 const Footer = ({ isAuth = false, isOpen }) => {
     const url = isAuth ? "/logout" : "/auth/redirect";
-    const name = isAuth ? "Déconnexion" : "Connexion";
+    const name = isAuth ? "Logout" : "Login";
     const icon = isAuth ? faRightFromBracket : faRightToBracket;
 
     return (
