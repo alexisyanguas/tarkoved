@@ -1,6 +1,6 @@
 {
-  "_Layout-c1b14d81.js": {
-    "file": "assets/Layout-c1b14d81.js",
+  "_Layout-aeb6ee30.js": {
+    "file": "assets/Layout-aeb6ee30.js",
     "imports": [
       "resources/js/app.jsx"
     ]
@@ -34,43 +34,43 @@
     "src": "resources/fonts/Bender/Jovanny Lemonad - Bender.otf"
   },
   "resources/js/Pages/Ammo/Index.jsx": {
-    "file": "assets/Index-70539831.js",
+    "file": "assets/Index-18ff7736.js",
     "imports": [
       "resources/js/app.jsx",
-      "_Layout-c1b14d81.js"
+      "_Layout-aeb6ee30.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Ammo/Index.jsx"
   },
   "resources/js/Pages/Maps/Index.jsx": {
-    "file": "assets/Index-52e05ab8.js",
+    "file": "assets/Index-035f2972.js",
     "imports": [
       "resources/js/app.jsx",
-      "_Layout-c1b14d81.js"
+      "_Layout-aeb6ee30.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Maps/Index.jsx"
   },
   "resources/js/Pages/Maps/Show.jsx": {
-    "file": "assets/Show-9105907a.js",
+    "file": "assets/Show-1a7be7d5.js",
     "imports": [
       "resources/js/app.jsx",
-      "_Layout-c1b14d81.js"
+      "_Layout-aeb6ee30.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Maps/Show.jsx"
   },
   "resources/js/Pages/Welcome.jsx": {
-    "file": "assets/Welcome-0a836fb0.js",
+    "file": "assets/Welcome-33d71bad.js",
     "imports": [
       "resources/js/app.jsx",
-      "_Layout-c1b14d81.js"
+      "_Layout-aeb6ee30.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Welcome.jsx"
   },
   "resources/js/app.css": {
-    "file": "assets/app-1319725d.css",
+    "file": "assets/app-3dbfa2ed.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.jsx": {
@@ -84,7 +84,7 @@
       "assets/Jovanny Lemonad - Bender-BlackItalic-770ab13f.otf"
     ],
     "css": [
-      "assets/app-1319725d.css"
+      "assets/app-3dbfa2ed.css"
     ],
     "dynamicImports": [
       "resources/js/Pages/Ammo/Index.jsx",
@@ -92,7 +92,7 @@
       "resources/js/Pages/Maps/Show.jsx",
       "resources/js/Pages/Welcome.jsx"
     ],
-    "file": "assets/app-5717204d.js",
+    "file": "assets/app-79645224.js",
     "isEntry": true,
     "src": "resources/js/app.jsx"
   }
