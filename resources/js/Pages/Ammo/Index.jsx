@@ -8,14 +8,29 @@ import { caliberArrayWithSplit } from "../../Modules/format-calibers";
 export default function Index({ layoutDatas, ammos }) {
     const calibers = caliberArrayWithSplit();
     const [caliberSelected, setCaliberSelected] = useState(null);
+    const [search, setSearch] = useState("");
 
     const filterAmmos = useMemo(() => {
-        if (caliberSelected === null) return Object.entries(ammos);
+        let tempFilteredCaliber = Object.entries(ammos);
 
-        return Object.entries(ammos).filter((ammo) => {
-            return ammo[1][0].caliber === caliberSelected;
-        });
-    }, [caliberSelected]);
+        if (caliberSelected !== null) {
+            tempFilteredCaliber = Object.entries(ammos).filter((ammo) => {
+                return ammo[1][0].caliber === caliberSelected;
+            });
+        }
+
+        // console.log(tempFilteredCaliber, search);
+
+        // if (search !== "") {
+        //     tempFilteredCaliber = tempFilteredCaliber.filter((ammo) => {
+        //         console.log(ammo[1][0].item.shortName);
+        //         return ammo[1][0].item.shortName
+        //             .toLowerCase()
+        //             .includes(search.toLowerCase());
+        //     });
+        // }
+        return tempFilteredCaliber;  
+    }, [caliberSelected, search]);
 
     return (
         <Layout
@@ -47,7 +62,10 @@ export default function Index({ layoutDatas, ammos }) {
                         })}
                     </div>
                     <div className="ammo-list">
-                        <AmmoHeader />
+                        <AmmoHeader
+                            handleSearch={(e) => setSearch(e.target.value)}
+                            search={search}
+                        />
                         <div className="ammo-list_table">
                             {filterAmmos.map((ammo, index) => {
                                 return ammo[1].map((ammo) => {

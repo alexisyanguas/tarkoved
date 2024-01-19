@@ -1,4 +1,4 @@
-const AmmoHeader = () => {
+const AmmoHeader = ({ search, handleSearch }) => {
     return (
         <div className="ammo-list_header">
             <div className="ammo-list_header_searchBar">
@@ -6,6 +6,8 @@ const AmmoHeader = () => {
                     <input
                         className="ammo-list_header_searchBar_input"
                         placeholder="Enter the name of the ammo"
+                        value={search}
+                        onChange={handleSearch}
                     ></input>
                     <div className="ammo-list_header_searchBar_searchBtn">
                         <svg
