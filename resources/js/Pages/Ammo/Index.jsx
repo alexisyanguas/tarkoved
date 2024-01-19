@@ -37,6 +37,13 @@ export default function Index({ layoutDatas, ammos }) {
         return tempFilteredCaliber;
     }, [caliberSelected, search]);
 
+    const skipTypes = [
+        "Caliber30x29",
+        "Caliber127x108",
+        "Caliber26x75",
+        "Caliber40mmRU",
+    ];
+
     return (
         <Layout
             title={layoutDatas.title}
@@ -66,29 +73,29 @@ export default function Index({ layoutDatas, ammos }) {
                         />
                         <div className="ammo-list_table">
                             {filterAmmos.map((ammo, index) => {
+                                if (skipTypes.includes(ammo[0])) return null;
                                 return (
-                                    <div>
-                                        <h3>
-                                            {
-                                                calibers.find(
-                                                    (caliber) =>
-                                                        caliber.id === ammo[0]
-                                                )?.name
-                                            }{" "}
+                                    <details className="ammo-list_table-caliber_content" open>
+                                        <summary className="ammo-list_table-caliber_name">
                                             <svg
-                                                className=" ammo-arrow-icon ammo-arrow-icon_hidden "
+                                                xmlns="http://www.w3.org/2000/svg"
                                                 width="10"
                                                 height="5"
                                                 viewBox="0 0 10 5"
                                                 fill="none"
-                                                xmlns="http://www.w3.org/2000/svg"
                                             >
                                                 <path
-                                                    d="M0 5L5 0L10 5H0Z"
-                                                    fill="var(--colors-kmrBlack-50)"
-                                                ></path>
+                                                    d="M10 0L5 5L0 0L10 0Z"
+                                                    fill="var(--colors-kmrWhite-100)"
+                                                />
                                             </svg>
-                                        </h3>
+                                            <h3>
+                                                {calibers.find(
+                                                    (caliber) =>
+                                                        caliber.id === ammo[0]
+                                                )?.name ?? ammo[0]}
+                                            </h3>
+                                        </summary>
                                         {ammo[1].map((ammo) => {
                                             return (
                                                 <AmmoItem
@@ -97,7 +104,7 @@ export default function Index({ layoutDatas, ammos }) {
                                                 />
                                             );
                                         })}
-                                    </div>
+                                    </details>
                                 );
                             })}
                         </div>

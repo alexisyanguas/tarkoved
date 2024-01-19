@@ -49,7 +49,7 @@
                         width: 100%;
                         padding: 8px 9px;
                         background-color: transparent;
-                        font-size: 15px;
+                        font-size: var(--font-size-16);
                         font-weight: 400;
                         color: #b0b0b0;
                         line-height: 22px;
@@ -80,7 +80,7 @@
                     background: 0 0;
                     color: var(--colors-kmrBlack-50);
                     border: 0;
-                    font-size: 16px;
+                    font-size: var(--font-size-16);
                     font-weight: 300;
                     line-height: 24px;
                     justify-content: center;
@@ -117,6 +117,22 @@
             gap: var(--gap-10);
             flex-grow: 1;
             border-radius: var(--radius-8);
+            .ammo-list_table-caliber_content {
+                background-color: var(--colors-kmrBlack-50);
+                border-radius: var(--radius-8);
+                .ammo-list_table-caliber_name {
+                    display: flex;
+                    cursor: pointer;
+
+                    flex-direction: row;
+                    align-items: center;
+                    font-size: var(--font-size-20);
+                    gap: var(--gap-10);
+                    padding: 0 var(--gap-10);
+                    color: var(--colors-kmrWhite-100);
+                }
+            }
+
             .ammo-list_table_row {
                 display: flex;
                 -moz-column-gap: 8px;
@@ -159,7 +175,7 @@
                                 right: 2px;
                                 font-family: var(--font-family-roboto);
                                 font-weight: 500;
-                                font-size: 14px;
+                                font-size: var(--font-size-10);
                                 line-height: 14px;
                                 color: #fff;
                                 -webkit-user-select: none;
@@ -183,7 +199,7 @@
                                 color: var(--colors-tarkovYellow-50);
                                 font-family: var(--font-family-bender-medium);
                                 font-weight: 400;
-                                font-size: 20px;
+                                font-size: var(--font-size-16);
                                 line-height: 24px;
                             }
                             .ammo-list_table_row-main_data-info_penetration {
@@ -203,37 +219,37 @@
                                     justify-content: center;
                                     align-items: center;
                                 }
-                                .ammo-list_table_row-main_data-info_penetration_class_none {
+                                .bg_none {
                                     background-color: var(
-                                        colors-tarkovBullet-none
+                                        --colors-tarkovBullet-none
                                     );
                                 }
-                                .ammo-list_table_row-main_data-info_penetration_class_verybad {
+                                .bg_verybad {
                                     background-color: var(
                                         --colors-tarkovBullet-verybad
                                     );
                                 }
-                                .ammo-list_table_row-main_data-info_penetration_class_bad {
+                                .bg_bad {
                                     background-color: var(
                                         --colors-tarkovBullet-bad
                                     );
                                 }
-                                .ammo-list_table_row-main_data-info_penetration_class_belowaverage {
+                                .bg_belowaverage {
                                     background-color: var(
                                         --colors-tarkovBullet-belowaverage
                                     );
                                 }
-                                .ammo-list_table_row-main_data-info_penetration_class_average {
+                                .bg_average {
                                     background-color: var(
                                         --colors-tarkovBullet-average
                                     );
                                 }
-                                .ammo-list_table_row-main_data-info_penetration_class_good {
+                                .bg_good {
                                     background-color: var(
                                         --colors-tarkovBullet-good
                                     );
                                 }
-                                .ammo-list_table_row-main_data-info_penetration_class_best {
+                                .bg_best {
                                     background-color: var(
                                         --colors-tarkovBullet-best
                                     );
@@ -253,7 +269,7 @@
                             color: var(--colors-kmrWhite-100);
                             align-items: center;
                             font-weight: 200;
-                            font-size: 20px;
+                            font-size: var(--font-size-20);
                             line-height: 30px;
                             &.damage {
                                 flex-basis: var(--flexbasis-damage);
