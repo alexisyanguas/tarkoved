@@ -5,6 +5,21 @@ import AmmoHeader from "../../Components/Ammos/AmmoHeader";
 import AmmoItem from "../../Components/Ammos/AmmoItem";
 import { caliberArrayWithSplit } from "../../Modules/format-calibers";
 
+const AmmoCaliberButton = ({ caliber, onClick, active, index }) => {
+    return (
+        <button
+            key={`caliber-${index}`}
+            onClick={onClick}
+            className={`ammo-basic-button_bullet ${active ? "active" : ""}`}
+        >
+            <p>
+                <SVG>{caliber?.component}</SVG>
+            </p>
+            <p>{caliber?.name}</p>
+        </button>
+    );
+};
+
 export default function Index({ layoutDatas, ammos }) {
     const calibers = caliberArrayWithSplit();
     const [caliberSelected, setCaliberSelected] = useState(null);
@@ -19,17 +34,7 @@ export default function Index({ layoutDatas, ammos }) {
             });
         }
 
-        // console.log(tempFilteredCaliber, search);
-
-        // if (search !== "") {
-        //     tempFilteredCaliber = tempFilteredCaliber.filter((ammo) => {
-        //         console.log(ammo[1][0].item.shortName);
-        //         return ammo[1][0].item.shortName
-        //             .toLowerCase()
-        //             .includes(search.toLowerCase());
-        //     });
-        // }
-        return tempFilteredCaliber;  
+        return tempFilteredCaliber;
     }, [caliberSelected, search]);
 
     return (
@@ -41,25 +46,20 @@ export default function Index({ layoutDatas, ammos }) {
             <div className="ammo-parent_container">
                 <div className="ammo-container">
                     <div className="ammo-filter_container">
-                        {calibers.map((caliber, index) => {
-                            return (
-                                <button
-                                    key={`caliber-${index}`}
-                                    onClick={() => {
-                                        setCaliberSelected(caliber.id ?? null);
-                                    }}
-                                    className={`ammo-basic-button_bullet ${
-                                        caliberSelected === caliber.id &&
-                                        "active"
-                                    }`}
-                                >
-                                    <p>
-                                        <SVG>{caliber?.component}</SVG>
-                                    </p>
-                                    <p>{caliber?.name}</p>
-                                </button>
-                            );
-                        })}
+                            {calibers.map((caliber, index) => {
+                                return (
+                                    <AmmoCaliberButton
+                                        caliber={caliber}
+                                        onClick={() => {
+                                            setCaliberSelected(
+                                                caliber.id ?? null
+                                            );
+                                        }}
+                                        active={caliberSelected === caliber.id}
+                                        index={index}
+                                    />
+                                );
+                            })}
                     </div>
                     <div className="ammo-list">
                         <AmmoHeader
