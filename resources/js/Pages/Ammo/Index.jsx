@@ -24,6 +24,11 @@ export default function Index({ layoutDatas, ammos }) {
     const [caliberSelected, setCaliberSelected] = useState(null);
     const [search, setSearch] = useState("");
 
+    useEffect(() => {
+        console.log(search);
+        console.log(filterAmmos);
+    }, [search]);
+
     const filterAmmos = useMemo(() => {
         let tempFilteredCaliber = Object.entries(ammos);
 
@@ -31,6 +36,22 @@ export default function Index({ layoutDatas, ammos }) {
             tempFilteredCaliber = Object.entries(ammos).filter((ammo) => {
                 return ammo[1][0].caliber === caliberSelected;
             });
+        }
+
+        if (search !== "") {
+            tempFilteredCaliber = tempFilteredCaliber.filter(
+                (calibersFiltered) => {
+                    // Pour chaque calibre, on filtre les munitions
+                    calibersFiltered[1] = calibersFiltered[1].filter((ammo) => {
+                        return ammo.item.shortName
+                            .toLowerCase()
+                            .includes(search.toLowerCase());
+                    });
+
+                    // Si le calibre n'a plus de munitions, on le supprime
+                    return calibersFiltered[1].length > 0;
+                }
+            );
         }
 
         return tempFilteredCaliber;

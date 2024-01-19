@@ -6,12 +6,15 @@ const AmmoButton = ({ id, className, text }) => {
     );
 };
 
-const AmmoHeader = () => {
+const AmmoHeader = ({
+    handleSearch,
+    search,
+}) => {
     return (
         <div className="ammo-list_header">
             <div className="ammo-list_header_searchBar">
                 <div className="ammo-list_header_searchBar_wrapper">
-                    <input
+                    <input onChange={handleSearch} value={search} type="text"
                         className="ammo-list_header_searchBar_input"
                         placeholder="Enter the name of the ammo"
                     ></input>
