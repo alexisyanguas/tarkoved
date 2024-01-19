@@ -46,20 +46,18 @@ export default function Index({ layoutDatas, ammos }) {
             <div className="ammo-parent_container">
                 <div className="ammo-container">
                     <div className="ammo-filter_container">
-                            {calibers.map((caliber, index) => {
-                                return (
-                                    <AmmoCaliberButton
-                                        caliber={caliber}
-                                        onClick={() => {
-                                            setCaliberSelected(
-                                                caliber.id ?? null
-                                            );
-                                        }}
-                                        active={caliberSelected === caliber.id}
-                                        index={index}
-                                    />
-                                );
-                            })}
+                        {calibers.map((caliber, index) => {
+                            return (
+                                <AmmoCaliberButton
+                                    caliber={caliber}
+                                    onClick={() => {
+                                        setCaliberSelected(caliber.id ?? null);
+                                    }}
+                                    active={caliberSelected === caliber.id}
+                                    index={index}
+                                />
+                            );
+                        })}
                     </div>
                     <div className="ammo-list">
                         <AmmoHeader
@@ -68,14 +66,39 @@ export default function Index({ layoutDatas, ammos }) {
                         />
                         <div className="ammo-list_table">
                             {filterAmmos.map((ammo, index) => {
-                                return ammo[1].map((ammo) => {
-                                    return (
-                                        <AmmoItem
-                                            ammo={ammo}
-                                            index={`caliber_group-${index}`}
-                                        />
-                                    );
-                                });
+                                return (
+                                    <div>
+                                        <h3>
+                                            {
+                                                calibers.find(
+                                                    (caliber) =>
+                                                        caliber.id === ammo[0]
+                                                )?.name
+                                            }{" "}
+                                            <svg
+                                                className=" ammo-arrow-icon ammo-arrow-icon_hidden "
+                                                width="10"
+                                                height="5"
+                                                viewBox="0 0 10 5"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path
+                                                    d="M0 5L5 0L10 5H0Z"
+                                                    fill="var(--colors-kmrBlack-50)"
+                                                ></path>
+                                            </svg>
+                                        </h3>
+                                        {ammo[1].map((ammo) => {
+                                            return (
+                                                <AmmoItem
+                                                    ammo={ammo}
+                                                    index={`caliber_group-${index}`}
+                                                />
+                                            );
+                                        })}
+                                    </div>
+                                );
                             })}
                         </div>
                     </div>
