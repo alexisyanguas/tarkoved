@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "./Navbar";
+import Loader from "./Loader";
 
 const Header = ({ title, user }) => {
     return (
@@ -17,9 +18,10 @@ const Header = ({ title, user }) => {
     );
 };
 
-const Layout = ({ children, page, title, user = null }) => {
+const Layout = ({ children, page, title, user = null, isLoad = false }) => {
     return (
         <div className="layout-container">
+            {isLoad && <Loader />}
             <Navbar page={page} isAuth={user !== null} />
             <div className="layout-content_container">
                 <Header title={title} user={user} />

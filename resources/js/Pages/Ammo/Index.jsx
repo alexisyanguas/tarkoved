@@ -5,10 +5,9 @@ import AmmoHeader from "../../Components/Ammos/AmmoHeader";
 import AmmoItem from "../../Components/Ammos/AmmoItem";
 import { caliberArrayWithSplit } from "../../Modules/format-calibers";
 
-const AmmoCaliberButton = ({ caliber, onClick, active, index }) => {
+const AmmoCaliberButton = ({ caliber, onClick, active }) => {
     return (
         <button
-            key={`caliber-${index}`}
             onClick={onClick}
             className={`ammo-basic-button_bullet ${active ? "active" : ""}`}
         >
@@ -61,7 +60,7 @@ export default function Index({ layoutDatas, ammos }) {
                                         setCaliberSelected(caliber.id ?? null);
                                     }}
                                     active={caliberSelected === caliber.id}
-                                    index={index}
+                                    key={`caliber-${index}`}
                                 />
                             );
                         })}
@@ -75,7 +74,11 @@ export default function Index({ layoutDatas, ammos }) {
                             {filterAmmos.map((ammo, index) => {
                                 if (skipTypes.includes(ammo[0])) return null;
                                 return (
-                                    <details className="ammo-list_table-caliber_content" open>
+                                    <details
+                                        key={`caliber_group-${index}`}
+                                        className="ammo-list_table-caliber_content"
+                                        open
+                                    >
                                         <summary className="ammo-list_table-caliber_name">
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +103,7 @@ export default function Index({ layoutDatas, ammos }) {
                                             return (
                                                 <AmmoItem
                                                     ammo={ammo}
-                                                    index={`caliber_group-${index}`}
+                                                    key={`caliber_group_${index}-ammo_${ammo?.item?.id}`}
                                                 />
                                             );
                                         })}

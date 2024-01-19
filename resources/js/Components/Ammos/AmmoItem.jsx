@@ -6,7 +6,7 @@ export const AmmoInfoItem = ({ className, text }) => {
     );
 };
 
-const AmmoItem = ({ ammo, index }) => {
+const AmmoItem = ({ ammo }) => {
     const getRecoilClass = ({ float }) => {
         switch (true) {
             case float < 0:
@@ -38,10 +38,7 @@ const AmmoItem = ({ ammo, index }) => {
     };
 
     return (
-        <div
-            className="ammo-list_table_row"
-            key={`${index}-ammo-${ammo.item.id}`}
-        >
+        <div className="ammo-list_table_row">
             <div className="ammo-list_table_row-data">
                 <AmmoMainPart ammo={ammo} />
                 <div className="ammo-list_table_row-other_data">
