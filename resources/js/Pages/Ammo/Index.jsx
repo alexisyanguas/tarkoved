@@ -5,10 +5,9 @@ import AmmoHeader from "../../Components/Ammos/AmmoHeader";
 import AmmoItem from "../../Components/Ammos/AmmoItem";
 import { caliberArrayWithSplit } from "../../Modules/format-calibers";
 
-const AmmoCaliberButton = ({ caliber, onClick, active, index }) => {
+const AmmoCaliberButton = ({ caliber, onClick, active }) => {
     return (
         <button
-            key={`caliber-${index}`}
             onClick={onClick}
             className={`ammo-basic-button_bullet ${active ? "active" : ""}`}
         >
@@ -25,6 +24,11 @@ export default function Index({ layoutDatas, ammos }) {
     const [caliberSelected, setCaliberSelected] = useState(null);
     const [search, setSearch] = useState("");
 
+    useEffect(() => {
+        console.log(search);
+        console.log(filterAmmos);
+    }, [search]);
+
     const filterAmmos = useMemo(() => {
         let tempFilteredCaliber = Object.entries(ammos);
 
@@ -34,8 +38,31 @@ export default function Index({ layoutDatas, ammos }) {
             });
         }
 
+        if (search !== "") {
+            tempFilteredCaliber = tempFilteredCaliber.filter(
+                (calibersFiltered) => {
+                    // Pour chaque calibre, on filtre les munitions
+                    calibersFiltered[1] = calibersFiltered[1].filter((ammo) => {
+                        return ammo.item.shortName
+                            .toLowerCase()
+                            .includes(search.toLowerCase());
+                    });
+
+                    // Si le calibre n'a plus de munitions, on le supprime
+                    return calibersFiltered[1].length > 0;
+                }
+            );
+        }
+
         return tempFilteredCaliber;
     }, [caliberSelected, search]);
+
+    const skipTypes = [
+        "Caliber30x29",
+        "Caliber127x108",
+        "Caliber26x75",
+        "Caliber40mmRU",
+    ];
 
     return (
         <Layout
@@ -46,20 +73,18 @@ export default function Index({ layoutDatas, ammos }) {
             <div className="ammo-parent_container">
                 <div className="ammo-container">
                     <div className="ammo-filter_container">
-                            {calibers.map((caliber, index) => {
-                                return (
-                                    <AmmoCaliberButton
-                                        caliber={caliber}
-                                        onClick={() => {
-                                            setCaliberSelected(
-                                                caliber.id ?? null
-                                            );
-                                        }}
-                                        active={caliberSelected === caliber.id}
-                                        index={index}
-                                    />
-                                );
-                            })}
+                        {calibers.map((caliber, index) => {
+                            return (
+                                <AmmoCaliberButton
+                                    caliber={caliber}
+                                    onClick={() => {
+                                        setCaliberSelected(caliber.id ?? null);
+                                    }}
+                                    active={caliberSelected === caliber.id}
+                                    key={`caliber-${index}`}
+                                />
+                            );
+                        })}
                     </div>
                     <div className="ammo-list">
                         <AmmoHeader
@@ -68,14 +93,43 @@ export default function Index({ layoutDatas, ammos }) {
                         />
                         <div className="ammo-list_table">
                             {filterAmmos.map((ammo, index) => {
-                                return ammo[1].map((ammo) => {
-                                    return (
-                                        <AmmoItem
-                                            ammo={ammo}
-                                            index={`caliber_group-${index}`}
-                                        />
-                                    );
-                                });
+                                if (skipTypes.includes(ammo[0])) return null;
+                                return (
+                                    <details
+                                        key={`caliber_group-${index}`}
+                                        className="ammo-list_table-caliber_content"
+                                        open
+                                    >
+                                        <summary className="ammo-list_table-caliber_name">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="10"
+                                                height="5"
+                                                viewBox="0 0 10 5"
+                                                fill="none"
+                                            >
+                                                <path
+                                                    d="M10 0L5 5L0 0L10 0Z"
+                                                    fill="var(--colors-kmrWhite-100)"
+                                                />
+                                            </svg>
+                                            <h3>
+                                                {calibers.find(
+                                                    (caliber) =>
+                                                        caliber.id === ammo[0]
+                                                )?.name ?? ammo[0]}
+                                            </h3>
+                                        </summary>
+                                        {ammo[1].map((ammo) => {
+                                            return (
+                                                <AmmoItem
+                                                    ammo={ammo}
+                                                    key={`caliber_group_${index}-ammo_${ammo?.item?.id}`}
+                                                />
+                                            );
+                                        })}
+                                    </details>
+                                );
                             })}
                         </div>
                     </div>

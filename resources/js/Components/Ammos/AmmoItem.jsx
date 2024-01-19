@@ -1,17 +1,21 @@
+import AmmoMainPart from "./AmmoMainPart";
+
 export const AmmoInfoItem = ({ className, text }) => {
     return (
         <div className={`ammo-list_table_row-item ${className}`}>{text}</div>
     );
 };
 
-const AmmoItem = ({ ammo, index }) => {
-    const getGoodOrBadClass = ({ float }) => {
+const AmmoItem = ({ ammo }) => {
+    const getRecoilClass = ({ float }) => {
         switch (true) {
             case float < 0:
                 return "best";
             case float * 100 <= 25:
-                return "belowaverage";
+                return "average";
             case float * 100 <= 50:
+                return "belowaverage";
+            case float * 100 <= 100:
                 return "bad";
             case float * 100 > 100:
                 return "none";
@@ -20,48 +24,28 @@ const AmmoItem = ({ ammo, index }) => {
         }
     };
 
+    const getAccuracyClass = ({ float }) => {
+        switch (true) {
+            case float < 0:
+                return "none";
+            case float * 100 <= 100:
+                return "good";
+            case float * 100 > 100:
+                return "best";
+            default:
+                return "";
+        }
+    };
+
     return (
-        <div
-            className="ammo-list_table_row"
-            key={`${index}-ammo-${ammo.item.id}`}
-        >
+        <div className="ammo-list_table_row">
             <div className="ammo-list_table_row-data">
-                <div className="ammo-list_table_row-main_data">
-                    <div className="ammo-list_table_row-main_data-icon">
-                        <img
-                            src={ammo?.item.image512pxLink ?? ""}
-                            alt={ammo?.item.shortName}
-                        />
-                        <p>{ammo?.item?.shortName}</p>
-                    </div>
-                    <div className="ammo-list_table_row-main_data-info">
-                        <span className="ammo-list_table_row-main_data-info_name">
-                            {ammo?.item?.shortName}
-                        </span>
-                        <div className="ammo-list_table_row-main_data-info_penetration">
-                            <p className="ammo-list_table_row-main_data-info_penetration_class ammo-list_table_row-main_data-info_penetration_class_best">
-                                6
-                            </p>
-                            <p className="ammo-list_table_row-main_data-info_penetration_class ammo-list_table_row-main_data-info_penetration_class_best">
-                                6
-                            </p>
-                            <p className="ammo-list_table_row-main_data-info_penetration_class ammo-list_table_row-main_data-info_penetration_class_best">
-                                6
-                            </p>
-                            <p className="ammo-list_table_row-main_data-info_penetration_class ammo-list_table_row-main_data-info_penetration_class_good">
-                                5
-                            </p>
-                            <p className="ammo-list_table_row-main_data-info_penetration_class ammo-list_table_row-main_data-info_penetration_class_average">
-                                4
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                <AmmoMainPart ammo={ammo} />
                 <div className="ammo-list_table_row-other_data">
                     <AmmoInfoItem className="damage" text={ammo?.damage} />
                     <AmmoInfoItem
                         className="penetration"
-                        text={ammo?.armorDamage}
+                        text={ammo?.penetrationPower}
                     />
                     <AmmoInfoItem
                         className="frag"
@@ -71,7 +55,7 @@ const AmmoItem = ({ ammo, index }) => {
                     />
 
                     <AmmoInfoItem
-                        className={`recoil ${getGoodOrBadClass({
+                        className={`recoil ${getRecoilClass({
                             float: ammo?.recoilModifier,
                         })}`}
                         text={
@@ -81,7 +65,7 @@ const AmmoItem = ({ ammo, index }) => {
                         }
                     />
                     <AmmoInfoItem
-                        className={`accuracy ${getGoodOrBadClass({
+                        className={`accuracy ${getAccuracyClass({
                             float: ammo?.accuracyModifier,
                         })}`}
                         text={
