@@ -48,7 +48,7 @@ const AmmoItem = ({ ammo, index }) => {
                     <AmmoInfoItem className="damage" text={ammo?.damage} />
                     <AmmoInfoItem
                         className="penetration"
-                        text={ammo?.armorDamage}
+                        text={ammo?.penetrationPower}
                     />
                     <AmmoInfoItem
                         className="frag"
