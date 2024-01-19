@@ -1,4 +1,12 @@
-const AmmoHeader = ({ search, handleSearch }) => {
+const AmmoButton = ({ id, className, text }) => {
+    return (
+        <button id={id} className={`ammo-list_header_buttons ${className} `}>
+            {text}
+        </button>
+    );
+};
+
+const AmmoHeader = () => {
     return (
         <div className="ammo-list_header">
             <div className="ammo-list_header_searchBar">
@@ -6,8 +14,6 @@ const AmmoHeader = ({ search, handleSearch }) => {
                     <input
                         className="ammo-list_header_searchBar_input"
                         placeholder="Enter the name of the ammo"
-                        value={search}
-                        onChange={handleSearch}
                     ></input>
                     <div className="ammo-list_header_searchBar_searchBtn">
                         <svg
@@ -38,111 +44,12 @@ const AmmoHeader = ({ search, handleSearch }) => {
                 </div>
             </div>
             <div className="ammo-list_header_buttons_wrapper">
-                <button id="damage" className="ammo-list_header_buttons_damage">
-                    Damage
-                    {/* <svg
-                        className=" ammo-arrow-icon ammo-arrow-icon_hidden "
-                        width="10"
-                        height="5"
-                        viewBox="0 0 10 5"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            d="M0 5L5 0L10 5H0Z"
-                            fill="var(--colors-kmrBlack-50)"
-                        ></path>
-                    </svg> */}
-                </button>
-                <button
-                    id="armorPenetration"
-                    className="ammo-list_header_buttons_penetration"
-                >
-                    Penetration
-                    {/* <svg
-                        className=" ammo-arrow-icon ammo-arrow-icon_hidden "
-                        width="10"
-                        height="5"
-                        viewBox="0 0 10 5"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            d="M0 5L5 0L10 5H0Z"
-                            fill="var(--colors-kmrBlack-50)"
-                        ></path>
-                    </svg> */}
-                </button>
-                <button
-                    id="armorFrag"
-                    className="ammo-list_header_buttons_frag"
-                >
-                    Frag
-                    {/* <svg
-                        className=" ammo-arrow-icon ammo-arrow-icon_hidden "
-                        width="10"
-                        height="5"
-                        viewBox="0 0 10 5"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            d="M0 5L5 0L10 5H0Z"
-                            fill="var(--colors-kmrBlack-50)"
-                        ></path>
-                    </svg> */}
-                </button>
-                <button id="recoil" className="ammo-list_header_buttons_recoil">
-                    Recoil
-                    {/* <svg
-                        className=" ammo-arrow-icon ammo-arrow-icon_hidden "
-                        width="10"
-                        height="5"
-                        viewBox="0 0 10 5"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            d="M0 5L5 0L10 5H0Z"
-                            fill="var(--colors-kmrBlack-50)"
-                        ></path>
-                    </svg> */}
-                </button>
-                <button
-                    id="accuracy"
-                    className="ammo-list_header_buttons_accuracy"
-                >
-                    Accuracy
-                    {/* <svg
-                        className=" ammo-arrow-icon ammo-arrow-icon_hidden "
-                        width="10"
-                        height="5"
-                        viewBox="0 0 10 5"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            d="M0 5L5 0L10 5H0Z"
-                            fill="var(--colors-kmrBlack-50)"
-                        ></path>
-                    </svg> */}
-                </button>
-                <button id="speed" className="ammo-list_header_buttons_speed">
-                    Speed
-                    {/* <svg
-                        className=" ammo-arrow-icon ammo-arrow-icon_hidden "
-                        width="10"
-                        height="5"
-                        viewBox="0 0 10 5"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            d="M0 5L5 0L10 5H0Z"
-                            fill="var(--colors-kmrBlack-50)"
-                        ></path>
-                    </svg> */}
-                </button>
+                <AmmoButton id="damage" className="damage" text="Damage" />
+                <AmmoButton id="armorPenetration" className="penetration" text="Penetration" />
+                <AmmoButton id="armorFrag" className="frag" text="Frag" />
+                <AmmoButton id="recoil" className="recoil" text="Recoil" />
+                <AmmoButton id="accuracy" className="accuracy" text="Accuracy" />
+                <AmmoButton id="speed" className="speed" text="Speed" />
             </div>
         </div>
     );

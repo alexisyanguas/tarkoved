@@ -74,12 +74,7 @@
                 justify-content: center;
                 -moz-column-gap: 8px;
                 column-gap: 8px;
-                .ammo-list_header_buttons_damage,
-                .ammo-list_header_buttons_penetration,
-                .ammo-list_header_buttons_frag,
-                .ammo-list_header_buttons_recoil,
-                .ammo-list_header_buttons_accuracy,
-                .ammo-list_header_buttons_speed {
+                .ammo-list_header_buttons {
                     display: flex;
                     padding: 8px 4px 8px 4px;
                     background: 0 0;
@@ -92,24 +87,24 @@
                     align-items: center;
                     -moz-column-gap: 8px;
                     column-gap: 8px;
-                }
-                .ammo-list_header_buttons_damage {
-                    flex-basis: var(--flexbasis-damage);
-                }
-                .ammo-list_header_buttons_penetration {
-                    flex-basis: var(--flexbasis-penetration);
-                }
-                .ammo-list_header_buttons_frag {
-                    flex-basis: var(--flexbasis-frag);
-                }
-                .ammo-list_header_buttons_recoil {
-                    flex-basis: var(--flexbasis-recoil);
-                }
-                .ammo-list_header_buttons_accuracy {
-                    flex-basis: var(--flexbasis-accuracy);
-                }
-                .ammo-list_header_buttons_speed {
-                    flex-basis: var(--flexbasis-speed);
+                    &.damage {
+                        flex-basis: var(--flexbasis-damage);
+                    }
+                    &.penetration {
+                        flex-basis: var(--flexbasis-penetration);
+                    }
+                    &.frag {
+                        flex-basis: var(--flexbasis-frag);
+                    }
+                    &.recoil {
+                        flex-basis: var(--flexbasis-recoil);
+                    }
+                    &.accuracy {
+                        flex-basis: var(--flexbasis-accuracy);
+                    }
+                    &.speed {
+                        flex-basis: var(--flexbasis-speed);
+                    }
                 }
             }
         }
