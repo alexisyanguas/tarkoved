@@ -6,9 +6,9 @@
         height: calc(100vh - var(--header-height-60));
         padding: var(--gap-16);
         display: flex;
-        gap: var(--gap-16);
         flex-wrap: wrap;
         overflow: auto;
+        gap: var(--gap-16);
         .map-container_list_item {
             position: relative;
             height: 20rem;

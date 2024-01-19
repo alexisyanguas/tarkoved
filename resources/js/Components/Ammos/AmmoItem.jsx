@@ -1,5 +1,25 @@
+export const AmmoInfoItem = ({ className, text }) => {
+    return (
+        <div className={`ammo-list_table_row-item ${className}`}>{text}</div>
+    );
+};
+
 const AmmoItem = ({ ammo, index }) => {
-    console.log(ammo);
+    const getGoodOrBadClass = ({ float }) => {
+        switch (true) {
+            case float < 0:
+                return "best";
+            case float * 100 <= 25:
+                return "belowaverage";
+            case float * 100 <= 50:
+                return "bad";
+            case float * 100 > 100:
+                return "none";
+            default:
+                return "";
+        }
+    };
+
     return (
         <div
             className="ammo-list_table_row"
@@ -8,7 +28,10 @@ const AmmoItem = ({ ammo, index }) => {
             <div className="ammo-list_table_row-data">
                 <div className="ammo-list_table_row-main_data">
                     <div className="ammo-list_table_row-main_data-icon">
-                        <img src="/img/traders/54cb50c76803fa8b248b4571.jpg" />
+                        <img
+                            src={ammo?.item.image512pxLink ?? ""}
+                            alt={ammo?.item.shortName}
+                        />
                         <p>{ammo?.item?.shortName}</p>
                     </div>
                     <div className="ammo-list_table_row-main_data-info">
@@ -35,20 +58,45 @@ const AmmoItem = ({ ammo, index }) => {
                     </div>
                 </div>
                 <div className="ammo-list_table_row-other_data">
-                    <div className="ammo-list_table_row-damage">
-                        {ammo?.damage}
-                    </div>
-                    <div className="ammo-list_table_row-penetration">
-                        {ammo?.armorDamage}
-                    </div>
-                    <div className="ammo-list_table_row-frag">
-                        {(ammo?.fragmentationChance * 100).toFixed(0) + "%"}
-                    </div>
-                    <div className="ammo-list_table_row-recoil">
-                        {ammo?.recoilModifier ? ammo?.recoilModifier * 100 : ""}
-                    </div>
-                    <div className="ammo-list_table_row-accuracy">+10%</div>
-                    <div className="ammo-list_table_row-speed">878 m/s</div>
+                    <AmmoInfoItem className="damage" text={ammo?.damage} />
+                    <AmmoInfoItem
+                        className="penetration"
+                        text={ammo?.armorDamage}
+                    />
+                    <AmmoInfoItem
+                        className="frag"
+                        text={
+                            (ammo?.fragmentationChance * 100).toFixed(0) + "%"
+                        }
+                    />
+
+                    <AmmoInfoItem
+                        className={`recoil ${getGoodOrBadClass({
+                            float: ammo?.recoilModifier,
+                        })}`}
+                        text={
+                            ammo?.recoilModifier
+                                ? Math.round(ammo?.recoilModifier * 100)
+                                : ""
+                        }
+                    />
+                    <AmmoInfoItem
+                        className={`accuracy ${getGoodOrBadClass({
+                            float: ammo?.accuracyModifier,
+                        })}`}
+                        text={
+                            ammo?.accuracyModifier
+                                ? `${Math.round(
+                                      ammo?.accuracyModifier * 100
+                                  )} %`
+                                : ""
+                        }
+                    />
+
+                    <AmmoInfoItem
+                        className={`speed`}
+                        text={`${ammo?.initialSpeed} m/s`}
+                    />
                 </div>
             </div>
         </div>
