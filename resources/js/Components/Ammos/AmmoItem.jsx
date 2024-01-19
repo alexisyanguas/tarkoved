@@ -1,4 +1,25 @@
+export const AmmoInfoItem = ({ className, text }) => {
+    return (
+        <div className={`ammo-list_table_row-item ${className}`}>{text}</div>
+    );
+};
+
 const AmmoItem = ({ ammo, index }) => {
+    const getGoodOrBadClass = ({ float }) => {
+        switch (true) {
+            case float < 0:
+                return "best";
+            case float * 100 <= 25:
+                return "belowaverage";
+            case float * 100 <= 50:
+                return "bad";
+            case float * 100 > 100:
+                return "none";
+            default:
+                return "";
+        }
+    };
+
     return (
         <div
             className="ammo-list_table_row"
@@ -37,53 +58,45 @@ const AmmoItem = ({ ammo, index }) => {
                     </div>
                 </div>
                 <div className="ammo-list_table_row-other_data">
-                    <div className="ammo-list_table_row-damage">
-                        {ammo?.damage}
-                    </div>
-                    <div className="ammo-list_table_row-penetration">
-                        {ammo?.armorDamage}
-                    </div>
-                    <div className="ammo-list_table_row-frag">
-                        {(ammo?.fragmentationChance * 100).toFixed(0) + "%"}
-                    </div>
-                    {/* <div className="ammo-list_table_row-recoil">
-                        {ammo?.recoilModifier ? ammo?.recoilModifier * 100 : ""}
-                    </div> */}
-                    <div
-                        className={`ammo-list_table_row-recoil ${
-                            ammo?.recoilModifier < 0
-                                ? "best"
-                                : ammo?.recoilModifier * 100 <= 25
-                                ? "belowaverage"
-                                : ammo?.recoilModifier * 100 <= 50
-                                ? "bad"
-                                : ammo?.recoilModifier * 100 > 100
-                                ? "none"
+                    <AmmoInfoItem className="damage" text={ammo?.damage} />
+                    <AmmoInfoItem
+                        className="penetration"
+                        text={ammo?.armorDamage}
+                    />
+                    <AmmoInfoItem
+                        className="frag"
+                        text={
+                            (ammo?.fragmentationChance * 100).toFixed(0) + "%"
+                        }
+                    />
+
+                    <AmmoInfoItem
+                        className={`recoil ${getGoodOrBadClass({
+                            float: ammo?.recoilModifier,
+                        })}`}
+                        text={
+                            ammo?.recoilModifier
+                                ? Math.round(ammo?.recoilModifier * 100)
                                 : ""
-                        }`}
-                    >
-                        {ammo?.recoilModifier
-                            ? Math.round(ammo?.recoilModifier * 100)
-                            : ""}
-                    </div>
-                    <div
-                        className={`ammo-list_table_row-accuracy ${
-                            ammo?.accuracyModifier < 0
-                                ? "none"
-                                : ammo?.accuracyModifier * 100 <= 100
-                                ? "good"
-                                : ammo?.accuracyModifier * 100 > 100
-                                ? "best"
+                        }
+                    />
+                    <AmmoInfoItem
+                        className={`accuracy ${getGoodOrBadClass({
+                            float: ammo?.accuracyModifier,
+                        })}`}
+                        text={
+                            ammo?.accuracyModifier
+                                ? `${Math.round(
+                                      ammo?.accuracyModifier * 100
+                                  )} %`
                                 : ""
-                        }`}
-                    >
-                        {ammo?.accuracyModifier
-                            ? Math.round(ammo?.accuracyModifier * 100) + "%"
-                            : ""}
-                    </div>
-                    <div className="ammo-list_table_row-speed">
-                        {ammo?.initialSpeed} m/s
-                    </div>
+                        }
+                    />
+
+                    <AmmoInfoItem
+                        className={`speed`}
+                        text={`${ammo?.initialSpeed} m/s`}
+                    />
                 </div>
             </div>
         </div>

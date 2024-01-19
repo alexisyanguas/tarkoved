@@ -69,7 +69,6 @@
                 }
             }
             .ammo-list_header_buttons_wrapper {
-                /* padding-left: 8px; */
                 flex-grow: 1;
                 display: flex;
                 justify-content: center;
@@ -252,12 +251,7 @@
                         flex: 1;
                         column-gap: 8px;
                         justify-content: center;
-                        .ammo-list_table_row-damage,
-                        .ammo-list_table_row-penetration,
-                        .ammo-list_table_row-frag,
-                        .ammo-list_table_row-recoil,
-                        .ammo-list_table_row-accuracy,
-                        .ammo-list_table_row-speed {
+                        .ammo-list_table_row-item {
                             padding: 0 16px;
                             display: flex;
                             justify-content: center;
@@ -266,24 +260,24 @@
                             font-weight: 200;
                             font-size: 20px;
                             line-height: 30px;
-                        }
-                        .ammo-list_table_row-damage {
-                            flex-basis: var(--flexbasis-damage);
-                        }
-                        .ammo-list_table_row-penetration {
-                            flex-basis: var(--flexbasis-penetration);
-                        }
-                        .ammo-list_table_row-frag {
-                            flex-basis: var(--flexbasis-frag);
-                        }
-                        .ammo-list_table_row-recoil {
-                            flex-basis: var(--flexbasis-recoil);
-                        }
-                        .ammo-list_table_row-accuracy {
-                            flex-basis: var(--flexbasis-accuracy);
-                        }
-                        .ammo-list_table_row-speed {
-                            flex-basis: var(--flexbasis-speed);
+                            &.damage {
+                                flex-basis: var(--flexbasis-damage);
+                            }
+                            &.penetration {
+                                flex-basis: var(--flexbasis-penetration);
+                            }
+                            &.frag {
+                                flex-basis: var(--flexbasis-frag);
+                            }
+                            &.recoil {
+                                flex-basis: var(--flexbasis-recoil);
+                            }
+                            &.accuracy {
+                                flex-basis: var(--flexbasis-accuracy);
+                            }
+                            &.speed {
+                                flex-basis: var(--flexbasis-speed);
+                            }
                         }
                     }
                 }
@@ -319,7 +313,6 @@
     background-color: var(--colors-kmrBlack-50);
     &:hover,
     &.active {
-        /* background-color: var(--colors-kmrWhite-100); */
         color: var(--colors-kmrBlack-100);
         border: 1px solid var(--colors-tarkovYellow-50);
         color: var(--colors-tarkovYellow-50);
