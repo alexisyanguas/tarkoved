@@ -33,6 +33,7 @@
         gap: var(--gap-20);
         .ammo-list_header {
             display: flex;
+            padding: 0 16px;
             .ammo-list_header_searchBar {
                 width: var(--flexbasis-mainData);
                 position: relative;
@@ -81,7 +82,7 @@
                 .ammo-list_header_buttons_accuracy,
                 .ammo-list_header_buttons_speed {
                     display: flex;
-                    padding: 8px 4px 8px 16px;
+                    padding: 8px 4px 8px 4px;
                     background: 0 0;
                     color: var(--colors-kmrBlack-50);
                     border: 0;
